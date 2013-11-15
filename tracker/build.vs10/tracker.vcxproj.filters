@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\mediawrapper">
+      <UniqueIdentifier>{45a54df4-fa2b-4db4-bca7-e2a2843b6342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mediawrapper">
+      <UniqueIdentifier>{40713f9c-af34-47af-a0d8-7b091c92252d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\common">
+      <UniqueIdentifier>{9117467c-a9d7-4d18-b437-62d3de1f999f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\common">
+      <UniqueIdentifier>{049e6ea2-903a-4a60-9b56-a2824142e655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\attributes">
+      <UniqueIdentifier>{0b4a2def-0602-42ec-b941-80fa0f342d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\attributes">
+      <UniqueIdentifier>{2021e412-be44-4626-bfc8-f6f75dc34410}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source\areaFromContour.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Arena.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\drawFly.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\euclideanDistance.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\findArenas.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\findCircles.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Fly.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\getBackground.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\getBodyThreshold.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\hofacker.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\hungarian.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\inpaint.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\OcclusionMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\prob2logodd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\reconstruct.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\score2prob.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SequenceMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\signTest.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\statistics.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\TrackedFrame.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\ColorFormat.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\InputVideo.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\mediawrapper.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\OutputVideo.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\Video.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoCodec.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoFormat.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoFrame.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoOutputFormat.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoStream.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\algebra.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\arrayOperations.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\byRef.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\convolve.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\debug.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\fileUtilities.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\gaussian.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\geometry.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\interpolate.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\macro.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\mathematics.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\mystdint.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\MyTraits.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\ordfilt.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\ScopeGuard.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\serialization.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\Settings.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\Singleton.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\Stopwatch.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\StrideIterator.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\stringUtilities.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\Vec.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\global.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Interior.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Attribute.hpp">
+      <Filter>Header Files\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\AttributeCollection.hpp">
+      <Filter>Header Files\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\FlyAttributes.hpp">
+      <Filter>Header Files\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\FrameAttributes.hpp">
+      <Filter>Header Files\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PairAttributes.hpp">
+      <Filter>Header Files\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\MyBool.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Shape.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\Arena.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\drawFly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\findArenas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\findCircles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Fly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\getBackground.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\getBodyThreshold.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\hungarian.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\inpaint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\OcclusionMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\reconstruct.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SequenceMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\TrackedFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\InputVideo.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\mediawrapper.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\OutputVideo.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoCodec.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoFormat.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoFrame.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoOutputFormat.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoStream.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\source\stringUtilities.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\source\debug.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\source\fileUtilities.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\source\Stopwatch.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FrameAttributes.cpp">
+      <Filter>Source Files\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FlyAttributes.cpp">
+      <Filter>Source Files\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PairAttributes.cpp">
+      <Filter>Source Files\attributes</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

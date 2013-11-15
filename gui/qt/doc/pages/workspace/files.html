@@ -1,0 +1,59 @@
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Files Tab</title>
+    </head>
+    <body style="font-size:12pt;font-family:helvetica">
+
+	<p><center><h2>Files Tab</h2></center></p>
+
+        <p>
+        The "Files" tab views all files within a project that were added by the user. Each row in this view represents one file and the columns contain information for each file. Depdending on the represented type of file, some of the columns may remain empty. Each file is within a certain stage having a certain status. There are six stages a file can be in:
+		
+		<ul>
+			<li><b>Recording:</b> When adding a file to a project and no further operations were conducted, the file is in this stage.</li>
+			<li><b>Arena Detection:</b> Describes the process of detecting vessels, where the flies are held, in video files.</li>
+			<li><b>Fly Tracking:</b> Describes the process of analysing an detected arena for courtshipbehavior of two flies in video files.</li>
+			<li><b>Pulse Detection:</b> Describes the process of detecting pulses of a courtshipsong in audio files.</li>
+			<li><b>Modifying File:</b> The user is able to modify an audio file after the pulse detection was performed.</li>
+		</ul>
+
+and each stage has one of four available status: Failed, Queued, Started, Finished.
+		
+        </p>
+
+        <br />
+        <br />
+        <table align="center" cellpadding="2" cellspacing="1" border="0" width="100%">
+        <tr valign="top" bgcolor="#f0f0f0">
+        <td><center><img src="images/matebook.png" /></center></td>
+        </tr>
+        </table>
+
+        <br />
+        <br />
+        <p>
+        Also the user can modify certain cells by double clicking on them. Cells that can be modified are: 
+			<ul>
+				<li><b>Path:</b> The user can select the new file path by choosing the new file location using a file dialog.</li>
+				<li><b>Noise File:</b> To be able to perform a pulse detection on an audio file, a file containing the background noise is needed. If this column is empty the default noise file, provided by the program, is used.</li>
+				<li><b>Experimenter:</b> coming soon ...</li>
+				<li><b>Date:</b> By default this column contains the creation date of a file.</li>
+				<li><b># sex:</b> The user can define the sex of a fly.</li>
+				<li><b># genotype:</b> Comment about the genotype of a fly.</li>
+				<li><b>Arena size:</b> coming soon ...</li>
+				<li><b>Start:</b> coming soon ...</li>
+				<li><b>End:</b> coming soon ...</li>
+				<li><b>Comment:</b> Containing comments regarding the selected file.</li>
+			</ul>
+        </p>
+
+        <br />
+        <br />
+        <p>
+        See also: <a href="./pages/workspace/menubar/menubar.html">Menubar</a>, <a href="./pages/videoanalysis/videoanalysis.html">Video Analysis</a>, <a href="./pages/songanalysis/songanalysis.html">Song Analysis</a> and <a href="./pages/workspace/workspace.html">Workspace</a>
+        </p>
+    </body>
+</html>
+
+

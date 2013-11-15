@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C4A11368-BC71-448E-B03A-90586F723376}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>tracker</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\binaries\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(PlatformName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\binaries\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(PlatformName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\boost\source;..\..\ffmpeg\win\i386\include;C:\OpenCV\current\build\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP4 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_core230d.lib;opencv_highgui230d.lib;opencv_imgproc230d.lib;avcodec.lib;avdevice.lib;avformat.lib;avutil.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenCV\current\build\x86\vc10\lib;..\..\ffmpeg\win\i386\lib;..\..\boost\binaries\Win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy ..\..\ffmpeg\win\i386\bin\*.dll $(OutDir)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying .dll files to $(OutDir)</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\boost\source;..\..\ffmpeg\win\i386\include;C:\OpenCV\current\build\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP4 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opencv_core230.lib;opencv_highgui230.lib;opencv_imgproc230.lib;avcodec.lib;avdevice.lib;avformat.lib;avutil.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenCV\current\build\x86\vc10\lib;..\..\ffmpeg\win\i386\lib;..\..\boost\binaries\Win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy ..\..\ffmpeg\win\i386\bin\*.dll $(OutDir)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying .dll files to $(OutDir)</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\common\source\algebra.hpp" />
+    <ClInclude Include="..\..\common\source\arrayOperations.hpp" />
+    <ClInclude Include="..\..\common\source\byRef.hpp" />
+    <ClInclude Include="..\..\common\source\convolve.hpp" />
+    <ClInclude Include="..\..\common\source\debug.hpp" />
+    <ClInclude Include="..\..\common\source\fileUtilities.hpp" />
+    <ClInclude Include="..\..\common\source\gaussian.hpp" />
+    <ClInclude Include="..\..\common\source\geometry.hpp" />
+    <ClInclude Include="..\..\common\source\interpolate.hpp" />
+    <ClInclude Include="..\..\common\source\macro.h" />
+    <ClInclude Include="..\..\common\source\mathematics.hpp" />
+    <ClInclude Include="..\..\common\source\MyBool.hpp" />
+    <ClInclude Include="..\..\common\source\mystdint.h" />
+    <ClInclude Include="..\..\common\source\MyTraits.hpp" />
+    <ClInclude Include="..\..\common\source\ordfilt.hpp" />
+    <ClInclude Include="..\..\common\source\ScopeGuard.hpp" />
+    <ClInclude Include="..\..\common\source\serialization.hpp" />
+    <ClInclude Include="..\..\common\source\Settings.hpp" />
+    <ClInclude Include="..\..\common\source\Singleton.hpp" />
+    <ClInclude Include="..\..\common\source\Stopwatch.hpp" />
+    <ClInclude Include="..\..\common\source\StrideIterator.hpp" />
+    <ClInclude Include="..\..\common\source\stringUtilities.hpp" />
+    <ClInclude Include="..\..\common\source\Vec.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\ColorFormat.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\InputVideo.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\mediawrapper.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\OutputVideo.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\Video.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\VideoCodec.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\VideoFormat.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\VideoFrame.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\VideoOutputFormat.hpp" />
+    <ClInclude Include="..\..\mediawrapper\source\VideoStream.hpp" />
+    <ClInclude Include="..\source\areaFromContour.hpp" />
+    <ClInclude Include="..\source\Arena.hpp" />
+    <ClInclude Include="..\source\Attribute.hpp" />
+    <ClInclude Include="..\source\AttributeCollection.hpp" />
+    <ClInclude Include="..\source\drawFly.hpp" />
+    <ClInclude Include="..\source\euclideanDistance.hpp" />
+    <ClInclude Include="..\source\findArenas.hpp" />
+    <ClInclude Include="..\source\findCircles.hpp" />
+    <ClInclude Include="..\source\Fly.hpp" />
+    <ClInclude Include="..\source\FlyAttributes.hpp" />
+    <ClInclude Include="..\source\FrameAttributes.hpp" />
+    <ClInclude Include="..\source\getBackground.hpp" />
+    <ClInclude Include="..\source\getBodyThreshold.hpp" />
+    <ClInclude Include="..\source\global.hpp" />
+    <ClInclude Include="..\source\hofacker.hpp" />
+    <ClInclude Include="..\source\hungarian.hpp" />
+    <ClInclude Include="..\source\inpaint.hpp" />
+    <ClInclude Include="..\source\Interior.hpp" />
+    <ClInclude Include="..\source\OcclusionMap.hpp" />
+    <ClInclude Include="..\source\PairAttributes.hpp" />
+    <ClInclude Include="..\source\prob2logodd.hpp" />
+    <ClInclude Include="..\source\reconstruct.hpp" />
+    <ClInclude Include="..\source\score2prob.hpp" />
+    <ClInclude Include="..\source\SequenceMap.hpp" />
+    <ClInclude Include="..\source\Shape.hpp" />
+    <ClInclude Include="..\source\signTest.hpp" />
+    <ClInclude Include="..\source\statistics.hpp" />
+    <ClInclude Include="..\source\TrackedFrame.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\common\source\debug.cpp" />
+    <ClCompile Include="..\..\common\source\fileUtilities.cpp" />
+    <ClCompile Include="..\..\common\source\Stopwatch.cpp" />
+    <ClCompile Include="..\..\common\source\stringUtilities.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\InputVideo.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\mediawrapper.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\OutputVideo.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\VideoCodec.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\VideoFormat.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\VideoFrame.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\VideoOutputFormat.cpp" />
+    <ClCompile Include="..\..\mediawrapper\source\VideoStream.cpp" />
+    <ClCompile Include="..\source\Arena.cpp" />
+    <ClCompile Include="..\source\drawFly.cpp" />
+    <ClCompile Include="..\source\findArenas.cpp" />
+    <ClCompile Include="..\source\findCircles.cpp" />
+    <ClCompile Include="..\source\Fly.cpp" />
+    <ClCompile Include="..\source\FlyAttributes.cpp" />
+    <ClCompile Include="..\source\FrameAttributes.cpp" />
+    <ClCompile Include="..\source\getBackground.cpp" />
+    <ClCompile Include="..\source\getBodyThreshold.cpp" />
+    <ClCompile Include="..\source\global.cpp" />
+    <ClCompile Include="..\source\hungarian.cpp" />
+    <ClCompile Include="..\source\inpaint.cpp" />
+    <ClCompile Include="..\source\main.cpp" />
+    <ClCompile Include="..\source\OcclusionMap.cpp" />
+    <ClCompile Include="..\source\PairAttributes.cpp" />
+    <ClCompile Include="..\source\reconstruct.cpp" />
+    <ClCompile Include="..\source\SequenceMap.cpp" />
+    <ClCompile Include="..\source\TrackedFrame.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

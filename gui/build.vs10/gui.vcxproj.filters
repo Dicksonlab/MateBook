@@ -1,0 +1,1107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{1c1e307e-96fd-478e-b861-af9fda06ea9f}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{03a6d935-af4c-423f-ba76-29c19a5aaed6}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Header Files\accessor">
+      <UniqueIdentifier>{616c36cb-f8a7-4cc7-af0c-247a7476850d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\accessor">
+      <UniqueIdentifier>{54dbdb0f-3c50-45da-816a-ec4351427e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\delegate">
+      <UniqueIdentifier>{ac1216ce-51a0-4593-aaa9-24a5e6011031}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\delegate">
+      <UniqueIdentifier>{6fd5a96a-e558-428b-a8ea-5ca9c5f17899}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\job">
+      <UniqueIdentifier>{3d2ff981-4de9-45af-a179-c4c0aa6414a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\job">
+      <UniqueIdentifier>{95598c09-6521-4b31-bd82-5bc4b3e42afb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mediawrapper">
+      <UniqueIdentifier>{779d96e7-71ab-4c99-ba2c-223765004cd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mediawrapper">
+      <UniqueIdentifier>{471e5733-d33a-423b-9dc2-5acb849af22b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\grapher">
+      <UniqueIdentifier>{e08c72ce-30dd-414f-b82d-49de5f7c109f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\grapher">
+      <UniqueIdentifier>{ebd5934a-ce25-43e7-b3e9-ea2d8a9c8f35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tracker">
+      <UniqueIdentifier>{5ba4abc2-7370-4ca3-a561-aed97351335f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\common">
+      <UniqueIdentifier>{a1b923b2-52d5-4c37-a135-974307479b07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\common">
+      <UniqueIdentifier>{e3bd1e2e-7409-4e9d-a4ea-26b2399974a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tab">
+      <UniqueIdentifier>{84d02fd8-4cb5-4fa4-bb48-b21518ace960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tab">
+      <UniqueIdentifier>{fd9e0382-74c5-45e1-9c8c-a260217a390e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\settings">
+      <UniqueIdentifier>{cd3aa140-8637-4e44-901c-eb26a439a6d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\settings">
+      <UniqueIdentifier>{9899ff35-bc52-41f3-8c41-41fdee870c76}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\AbstractGroupItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AbstractGroupItem.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AbstractGroupItem.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ArenaItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ArenaItem.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ArenaItem.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ArenasApprovedDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ArenasApprovedDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ColorButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ColorButton.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ColorButton.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DateDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DateDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ExternalJob.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ExternalJob.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FancyMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FancyMenu.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FancyMenu.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FancyTreeView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FancyTreeView.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FancyTreeView.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FileItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FileItem.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FileItem.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FilePathDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FilePathDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FilePathNameDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FilePathNameDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FileSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FileSelector.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FileSelector.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FileUtilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FoldableGroupBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FoldableGroupBox.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FoldableGroupBox.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GenderDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GenderDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GraphicsPrimitives.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GroupedArenaItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupedArenaItem.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupedArenaItem.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GroupItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupItem.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupItem.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GroupTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupTree.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupTree.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Item.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Item.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ItemMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ItemMenu.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ItemMenu.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ItemTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ItemTree.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ItemTree.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Job.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Job.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_JobQueue.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_JobQueue.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\makeColorMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MateBook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MateBook.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MateBook.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\OcclusionMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PathSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_PathSelector.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_PathSelector.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Project.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Project.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Project.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\RuntimeError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SongPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SongPlayer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SongPlayer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SongResults.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SongVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\splitPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\StatisticalCalculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TimeDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TimeDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TimeOfDayDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TimeOfDayDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\TrackingResults.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Version.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Video.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\VideoPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_VideoPlayer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_VideoPlayer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\VideoRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_VideoRenderer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_VideoRenderer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ArenasAnalyzedAccessor.cpp">
+      <Filter>Source Files\accessor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ArenasApprovedAccessor.cpp">
+      <Filter>Source Files\accessor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ArenasDetectedAccessor.cpp">
+      <Filter>Source Files\accessor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FileAccessor.cpp">
+      <Filter>Source Files\accessor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GroupNameAccessor.cpp">
+      <Filter>Source Files\accessor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ArenasApprovedDelegate.cpp">
+      <Filter>Source Files\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\DateDelegate.cpp">
+      <Filter>Source Files\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FilePathDelegate.cpp">
+      <Filter>Source Files\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FilePathNameDelegate.cpp">
+      <Filter>Source Files\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GenderDelegate.cpp">
+      <Filter>Source Files\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\TimeDelegate.cpp">
+      <Filter>Source Files\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\TimeOfDayDelegate.cpp">
+      <Filter>Source Files\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ExternalJob.cpp">
+      <Filter>Source Files\job</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Job.cpp">
+      <Filter>Source Files\job</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\JobQueue.cpp">
+      <Filter>Source Files\job</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\InputVideo.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\mediawrapper.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\OutputVideo.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoCodec.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoFormat.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoFrame.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoOutputFormat.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mediawrapper\source\VideoStream.cpp">
+      <Filter>Source Files\mediawrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QGLGrapher.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QGLGrapher.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\QGLGrapher.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\ContinuousGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\UnitGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\LineFillGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\AbstractGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\BarGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\LineGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\MarkerGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\PointGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\VertexBuffer.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\grapher\source\WhiskerGraph.cpp">
+      <Filter>Source Files\grapher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tracker\source\FlyAttributes.cpp">
+      <Filter>Source Files\tracker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tracker\source\FrameAttributes.cpp">
+      <Filter>Source Files\tracker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tracker\source\PairAttributes.cpp">
+      <Filter>Source Files\tracker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_matebook.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\source\stringUtilities.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\source\debug.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\source\system.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\StringAccessor.cpp">
+      <Filter>Source Files\accessor</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ClusterJob.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ClusterJob.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ClusterJob.cpp">
+      <Filter>Source Files\job</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\VerticalWidgetList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_VerticalWidgetList.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_VerticalWidgetList.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AbstractTab.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AbstractTab.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ArenaTab.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ArenaTab.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FilesTab.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FilesTab.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupsTab.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupsTab.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SongTab.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SongTab.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_StatisticsTab.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_StatisticsTab.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_VideoTab.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_VideoTab.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\AbstractTab.cpp">
+      <Filter>Source Files\tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ArenaTab.cpp">
+      <Filter>Source Files\tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FilesTab.cpp">
+      <Filter>Source Files\tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GroupsTab.cpp">
+      <Filter>Source Files\tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SongTab.cpp">
+      <Filter>Source Files\tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\StatisticsTab.cpp">
+      <Filter>Source Files\tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\VideoTab.cpp">
+      <Filter>Source Files\tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SongStatisticsViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SongStatisticsViewer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SongStatisticsViewer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\AttributeGrapher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AttributeGrapher.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AttributeGrapher.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\AttributeSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AttributeSelector.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AttributeSelector.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ConfigDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ConfigDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ConfigDialog.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ConfigPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ArenaDetectionPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FlyTrackingPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\EventsPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\BehaviorAnalysisPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\DisplayPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SystemPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\EthogramsPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PulseDetectionPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_PulseDetectionPage.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_PulseDetectionPage.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SongAnalysisPage.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SongAnalysisPage.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SongAnalysisPage.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\StringReadAccessor.cpp">
+      <Filter>Source Files\accessor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Heatmapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Heatmapper.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Heatmapper.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\FilterSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FilterSelector.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FilterSelector.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SystemPage.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SystemPage.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ConfigPage.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ConfigPage.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\source\AbstractGroupItem.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ArenaItem.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ColorButton.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FancyMenu.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FancyTreeView.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FileItem.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FileSelector.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FoldableGroupBox.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\GroupedArenaItem.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\GroupItem.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\GroupTree.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\Item.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ItemMenu.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ItemTree.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\MateBook.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\PathSelector.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\Project.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\SongPlayer.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\VideoPlayer.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\VideoRenderer.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ArenasApprovedDelegate.hpp">
+      <Filter>Header Files\delegate</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\DateDelegate.hpp">
+      <Filter>Header Files\delegate</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FilePathDelegate.hpp">
+      <Filter>Header Files\delegate</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FilePathNameDelegate.hpp">
+      <Filter>Header Files\delegate</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\GenderDelegate.hpp">
+      <Filter>Header Files\delegate</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\TimeDelegate.hpp">
+      <Filter>Header Files\delegate</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\TimeOfDayDelegate.hpp">
+      <Filter>Header Files\delegate</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\Job.hpp">
+      <Filter>Header Files\job</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\JobQueue.hpp">
+      <Filter>Header Files\job</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ExternalJob.hpp">
+      <Filter>Header Files\job</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\grapher\source\QGLGrapher.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\qt\matebook.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ClusterJob.hpp">
+      <Filter>Header Files\job</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\VerticalWidgetList.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\AbstractTab.hpp">
+      <Filter>Header Files\tab</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ArenaTab.hpp">
+      <Filter>Header Files\tab</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FilesTab.hpp">
+      <Filter>Header Files\tab</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\GroupsTab.hpp">
+      <Filter>Header Files\tab</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\SongTab.hpp">
+      <Filter>Header Files\tab</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\StatisticsTab.hpp">
+      <Filter>Header Files\tab</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\VideoTab.hpp">
+      <Filter>Header Files\tab</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\SongStatisticsViewer.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\AttributeGrapher.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\AttributeSelector.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ConfigDialog.hpp">
+      <Filter>Header Files\settings</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\PulseDetectionPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\SongAnalysisPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\Heatmapper.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\FilterSelector.hpp">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\SystemPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\source\ConfigPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="gui.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source\FileUtilities.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\GraphicsPrimitives.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\makeColorMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\OcclusionMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\RuntimeError.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SongResults.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SongVisitor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\splitPath.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\StatisticalCalculator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\TrackingResults.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Version.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Video.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Accessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\AddressAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ArenasAnalyzedAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ArenasApprovedAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ArenasDetectedAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\AudioStageAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\AudioStatusAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\DateAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\FileAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\FilePathAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\GroupNameAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ReadAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ReadTimeAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ReadWriteAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\TimeAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\TimeOfDayAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\VideoStageAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\VideoStatusAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\ColorFormat.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\InputVideo.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\mediawrapper.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\OutputVideo.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\Video.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoCodec.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoFormat.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoFrame.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoOutputFormat.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mediawrapper\source\VideoStream.hpp">
+      <Filter>Header Files\mediawrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\ContinuousGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\WhiskerGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\BarGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\PointGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\LineFillGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\LineGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\UnitGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\AbstractGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\MarkerGraph.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\pow.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\precision.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\grapher\source\VertexBuffer.hpp">
+      <Filter>Header Files\grapher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\algebra.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\debug.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\mathematics.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\ScopeGuard.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\serialization.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\Settings.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\Singleton.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\stringUtilities.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\Vec.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\system.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\StringAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\DefinedReadAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\global.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ImageAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\MyBool.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\BinaryReader.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\source\BinaryWriter.hpp">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\ArenaDetectionPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\FlyTrackingPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\EventsPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\BehaviorAnalysisPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\DisplayPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\EthogramsPage.hpp">
+      <Filter>Header Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\StringReadAccessor.hpp">
+      <Filter>Header Files\accessor</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\qt\icons\copy.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\qt\icons\cut.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\qt\icons\new.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\qt\icons\open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\qt\icons\paste.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\qt\icons\save.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\qt\icons\delete.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

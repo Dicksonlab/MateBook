@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/mb">
+        <file>icons/copy.png</file>
+        <file>icons/cut.png</file>
+        <file>icons/new.png</file>
+        <file>icons/open.png</file>
+        <file>icons/paste.png</file>
+        <file>icons/save.png</file>
+        <file>icons/delete.png</file>
+        <file>icons/marker.png</file>
+        <file>icons/ethoSliderHandle.png</file>
+        <file>icons/down.png</file>
+        <file>icons/minus.png</file>
+        <file>icons/plus.png</file>
+        <file>icons/up.png</file>
+        <file>matlab/loadVideo.m</file>
+        <file>matlab/loadProject.m</file>
+    </qresource>
+</RCC>

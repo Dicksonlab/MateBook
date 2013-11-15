@@ -1,0 +1,75 @@
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Song Tab</title>
+    </head>
+    <body style="font-size:12pt;font-family:helvetica">
+
+	<p><center><h2>Song Tab</h2></center></p>
+
+        <p>
+        The song tab displays an audio file as a plot and provides detailed information on its data, which was obtained during pulse detection and statistical song analysis. The audio file can be played, paused and stopped. At the top right side the user can change settings regarding the data that is to be displayed, by choosing "Display Settings". The song data can be manually modified (creating and deleting pulses), saved and reloaded by choosing "Data Options". Also within the "Data Options" the user is able to perform a statistical analysis on the current song file. </p>
+		
+		<p>General data about the song is displayed at the bottom of this view inside the "Song Details" tab. There are three lists. One listing all detected pulses and the corresponding cycles per pulse, one displaying the start positions of all IPIs, together with each IPI length in milliseconds and the final one listing all detected trains, the train lengths and the number of pulses inside a train. The user can click on each list entry to highlight the selected list item inside the plot or the other way round.</p> 
+
+        <br />
+        <br />
+        <table align="center" cellpadding="2" cellspacing="1" border="0" width="100%">
+        <tr valign="top" bgcolor="#f0f0f0">
+        <td><center><img src="images/songtab.png" /></center></td>
+        </tr>
+        </table>
+		
+		<p>Inside the "Statistics" tab data that was calculated while running a statistical analysis is displayed, both as text and graphically.</p>
+		
+		<p><b>Navigation:</b> 
+			<ul>
+				<li><b>Stop:</b> If the song is played, it is stopped and the green cursor, displaying the current position, jumps to the songs beginning.</li>
+				<li><b>Play:</b> Starts playing the song at the current position.</li>
+				<li><b>Pause:</b> Pauses the song at the current position.</li>
+				<li><b>Previous:</b> The green cursor jumps to the first previous pulse, that is not currently displayed.</li>
+				<li><b>Next:</b> The green cursor jumps to the first next pulse, that is not currently displayed.</li>
+				<li><b>Sample Spinbox:</b> The user can enter a sample number. The green cursor jumps to the entered position inside the song.</li>
+				<li><b>Time Spinbox:</b> The user can enter a time and the green cursor jumps to the corresponding positon insie the song.</li>
+			</ul>
+		</p>
+		
+		<p><b>Display Settings:</b>
+			<ul>
+				<li><b>Highlight Pulses:</b> All detected pulses get highlighted in red.</li>
+				<li><b>Highlight Sines:</b> All detected sines get highlighted in blue.</li>
+				<li><b>Highlight Trains:</b> After pulse detection all putative pulse regions are highlighted in green. After running the statistical analysis detected trains are highlighted instead.</li>
+			</ul>
+		</p>
+		
+		<p><b>Data Options:</b>
+			<ul>
+				<li><b>Show All:</b> The plot is set to a zoom level where the whole song can be displayed inside the window.</li>
+				<li><b>Create Pulse:</b> The user can create a pulse by selecting an area of the song plot by right clicking the right mouse button at the start position and dragging the mouse cursor to the desired end position, releasing the mouse button. After pressing the "Create Pulse" button, the selected area gets highlighted in red.</li>
+				<li><b>Delete Pulse:</b> The user can delete one or several pulses by selecting them like described above and pressing the "Delete Pulse" Button. All pulses which are not fully selected, wont get deleted.</li>
+				<li><b>Statistical Analysis:</b> The program performes a statistical analysis. The results can be viewed inside the Statistics Tab. Before running a statistical analysis the user can change some parameters choosing "Settings" -> "Song Analysis" -> "Song Statistics Options".</li>
+				<li><b>Save Data:</b> All modified data gets saved.</li>
+				<li><b>Reload Data:</b> Changes that were made without saving get undone.</li>
+			</ul>
+		</p>
+		
+		<br />
+        <br />
+        <table align="center" cellpadding="2" cellspacing="1" border="0" width="100%">
+        <tr valign="top" bgcolor="#f0f0f0">
+        <td><center><img src="images/songtab2.png" /></center></td>
+        </tr>
+        </table>
+
+		
+
+        <br />
+        <br />
+        <p>
+        See also: <a href="./pages/workspace/files.html">Files Tab</a>, <a href="./pages/songanalysis/songanalysis.html">Song Analysis</a> and <a href="./pages/workspace/workspace.html">Workspace</a>
+        </p>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		452887AD10072AE500D7B868 /* VideoOutputFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 452887AB10072AE500D7B868 /* VideoOutputFormat.h */; };
+		452887AE10072AE500D7B868 /* VideoOutputFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 452887AC10072AE500D7B868 /* VideoOutputFormat.cpp */; };
+		45288806100736C300D7B868 /* VideoStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 45288804100736C300D7B868 /* VideoStream.h */; };
+		45288807100736C300D7B868 /* VideoStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45288805100736C300D7B868 /* VideoStream.cpp */; };
+		4563FBBC0FF8D94B00B59D15 /* ReaderCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4563FBAC0FF8D94B00B59D15 /* ReaderCore.cpp */; };
+		4563FBBD0FF8D94B00B59D15 /* ReaderCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 4563FBAD0FF8D94B00B59D15 /* ReaderCore.h */; };
+		4563FBBE0FF8D94B00B59D15 /* Video.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4563FBAE0FF8D94B00B59D15 /* Video.cpp */; };
+		4563FBBF0FF8D94B00B59D15 /* Video.h in Headers */ = {isa = PBXBuildFile; fileRef = 4563FBAF0FF8D94B00B59D15 /* Video.h */; };
+		4563FBC00FF8D94B00B59D15 /* VideoCodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4563FBB00FF8D94B00B59D15 /* VideoCodec.cpp */; };
+		4563FBC10FF8D94B00B59D15 /* VideoCodec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4563FBB10FF8D94B00B59D15 /* VideoCodec.h */; };
+		4563FBC20FF8D94B00B59D15 /* VideoFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4563FBB20FF8D94B00B59D15 /* VideoFormat.cpp */; };
+		4563FBC30FF8D94B00B59D15 /* VideoFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 4563FBB30FF8D94B00B59D15 /* VideoFormat.h */; };
+		4563FBC40FF8D94B00B59D15 /* VideoFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4563FBB40FF8D94B00B59D15 /* VideoFrame.cpp */; };
+		4563FBC50FF8D94B00B59D15 /* VideoFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 4563FBB50FF8D94B00B59D15 /* VideoFrame.h */; };
+		4563FBC80FF8D94B00B59D15 /* mediawrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4563FBB80FF8D94B00B59D15 /* mediawrapper.cpp */; };
+		4563FBC90FF8D94B00B59D15 /* mediawrapperhelp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4563FBB90FF8D94B00B59D15 /* mediawrapperhelp.h */; };
+		4563FBCA0FF8D94B00B59D15 /* mediawrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4563FBBA0FF8D94B00B59D15 /* mediawrapper.h */; };
+		4563FBEB0FF8D99600B59D15 /* libavutil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4563FBE70FF8D99600B59D15 /* libavutil.dylib */; };
+		4563FBEC0FF8D99600B59D15 /* libavformat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4563FBE80FF8D99600B59D15 /* libavformat.dylib */; };
+		4563FBED0FF8D99600B59D15 /* libavcodec.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4563FBE90FF8D99600B59D15 /* libavcodec.dylib */; };
+		4563FBEE0FF8D99600B59D15 /* libswscale.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4563FBEA0FF8D99600B59D15 /* libswscale.dylib */; };
+		E335A910119727C500C34510 /* InputVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = E335A90E119727C500C34510 /* InputVideo.h */; };
+		E335A911119727C500C34510 /* InputVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E335A90F119727C500C34510 /* InputVideo.cpp */; };
+		E338F9E31393177700A38254 /* ColorFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = E338F9E21393177700A38254 /* ColorFormat.h */; };
+		E3583A2A1189BC4E00070903 /* MediaId.h in Headers */ = {isa = PBXBuildFile; fileRef = E3583A291189BC4E00070903 /* MediaId.h */; };
+		E3E8C728119CEDE2007FDC20 /* OutputVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = E3E8C726119CEDE2007FDC20 /* OutputVideo.h */; };
+		E3E8C729119CEDE2007FDC20 /* OutputVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3E8C727119CEDE2007FDC20 /* OutputVideo.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		452887AB10072AE500D7B868 /* VideoOutputFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoOutputFormat.h; sourceTree = "<group>"; };
+		452887AC10072AE500D7B868 /* VideoOutputFormat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoOutputFormat.cpp; sourceTree = "<group>"; };
+		45288804100736C300D7B868 /* VideoStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStream.h; sourceTree = "<group>"; };
+		45288805100736C300D7B868 /* VideoStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoStream.cpp; sourceTree = "<group>"; };
+		4563FBA70FF8D93100B59D15 /* libmediawrapper.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmediawrapper.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		4563FBAC0FF8D94B00B59D15 /* ReaderCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReaderCore.cpp; sourceTree = "<group>"; };
+		4563FBAD0FF8D94B00B59D15 /* ReaderCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderCore.h; sourceTree = "<group>"; };
+		4563FBAE0FF8D94B00B59D15 /* Video.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Video.cpp; sourceTree = "<group>"; };
+		4563FBAF0FF8D94B00B59D15 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		4563FBB00FF8D94B00B59D15 /* VideoCodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoCodec.cpp; sourceTree = "<group>"; };
+		4563FBB10FF8D94B00B59D15 /* VideoCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCodec.h; sourceTree = "<group>"; };
+		4563FBB20FF8D94B00B59D15 /* VideoFormat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoFormat.cpp; sourceTree = "<group>"; };
+		4563FBB30FF8D94B00B59D15 /* VideoFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFormat.h; sourceTree = "<group>"; };
+		4563FBB40FF8D94B00B59D15 /* VideoFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoFrame.cpp; sourceTree = "<group>"; };
+		4563FBB50FF8D94B00B59D15 /* VideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrame.h; sourceTree = "<group>"; };
+		4563FBB80FF8D94B00B59D15 /* mediawrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mediawrapper.cpp; sourceTree = "<group>"; };
+		4563FBB90FF8D94B00B59D15 /* mediawrapperhelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mediawrapperhelp.h; sourceTree = "<group>"; };
+		4563FBBA0FF8D94B00B59D15 /* mediawrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mediawrapper.h; sourceTree = "<group>"; };
+		4563FBE70FF8D99600B59D15 /* libavutil.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.dylib; path = ../../ffmpeg/osx/x64/lib/libavutil.dylib; sourceTree = SOURCE_ROOT; };
+		4563FBE80FF8D99600B59D15 /* libavformat.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.dylib; path = ../../ffmpeg/osx/x64/lib/libavformat.dylib; sourceTree = SOURCE_ROOT; };
+		4563FBE90FF8D99600B59D15 /* libavcodec.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.dylib; path = ../../ffmpeg/osx/x64/lib/libavcodec.dylib; sourceTree = SOURCE_ROOT; };
+		4563FBEA0FF8D99600B59D15 /* libswscale.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.dylib; path = ../../ffmpeg/osx/x64/lib/libswscale.dylib; sourceTree = SOURCE_ROOT; };
+		E32D4502136E057B00D17CEA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		E335A90E119727C500C34510 /* InputVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputVideo.h; sourceTree = "<group>"; };
+		E335A90F119727C500C34510 /* InputVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputVideo.cpp; sourceTree = "<group>"; };
+		E338F9E21393177700A38254 /* ColorFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorFormat.h; sourceTree = "<group>"; };
+		E3583A291189BC4E00070903 /* MediaId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaId.h; sourceTree = "<group>"; };
+		E3E8C726119CEDE2007FDC20 /* OutputVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputVideo.h; sourceTree = "<group>"; };
+		E3E8C727119CEDE2007FDC20 /* OutputVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputVideo.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4563FBA50FF8D93100B59D15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4563FBEB0FF8D99600B59D15 /* libavutil.dylib in Frameworks */,
+				4563FBEC0FF8D99600B59D15 /* libavformat.dylib in Frameworks */,
+				4563FBED0FF8D99600B59D15 /* libavcodec.dylib in Frameworks */,
+				4563FBEE0FF8D99600B59D15 /* libswscale.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* util_c */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				4563FBE50FF8D99600B59D15 /* External */,
+				E32D4502136E057B00D17CEA /* OpenAL.framework */,
+			);
+			name = util_c;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4563FBAA0FF8D94B00B59D15 /* source */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4563FBA70FF8D93100B59D15 /* libmediawrapper.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4563FBAA0FF8D94B00B59D15 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				E3583A291189BC4E00070903 /* MediaId.h */,
+				4563FBB80FF8D94B00B59D15 /* mediawrapper.cpp */,
+				4563FBB90FF8D94B00B59D15 /* mediawrapperhelp.h */,
+				4563FBAC0FF8D94B00B59D15 /* ReaderCore.cpp */,
+				4563FBAD0FF8D94B00B59D15 /* ReaderCore.h */,
+				4563FBAE0FF8D94B00B59D15 /* Video.cpp */,
+				4563FBAF0FF8D94B00B59D15 /* Video.h */,
+				4563FBB00FF8D94B00B59D15 /* VideoCodec.cpp */,
+				4563FBB10FF8D94B00B59D15 /* VideoCodec.h */,
+				4563FBB20FF8D94B00B59D15 /* VideoFormat.cpp */,
+				4563FBB30FF8D94B00B59D15 /* VideoFormat.h */,
+				4563FBB40FF8D94B00B59D15 /* VideoFrame.cpp */,
+				4563FBB50FF8D94B00B59D15 /* VideoFrame.h */,
+				452887AB10072AE500D7B868 /* VideoOutputFormat.h */,
+				452887AC10072AE500D7B868 /* VideoOutputFormat.cpp */,
+				45288804100736C300D7B868 /* VideoStream.h */,
+				45288805100736C300D7B868 /* VideoStream.cpp */,
+				E335A90E119727C500C34510 /* InputVideo.h */,
+				E335A90F119727C500C34510 /* InputVideo.cpp */,
+				E3E8C726119CEDE2007FDC20 /* OutputVideo.h */,
+				E3E8C727119CEDE2007FDC20 /* OutputVideo.cpp */,
+				4563FBBA0FF8D94B00B59D15 /* mediawrapper.h */,
+				E338F9E21393177700A38254 /* ColorFormat.h */,
+			);
+			name = source;
+			path = ../source;
+			sourceTree = "<group>";
+		};
+		4563FBE50FF8D99600B59D15 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				4563FBE60FF8D99600B59D15 /* Libraries */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		4563FBE60FF8D99600B59D15 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4563FBE70FF8D99600B59D15 /* libavutil.dylib */,
+				4563FBE80FF8D99600B59D15 /* libavformat.dylib */,
+				4563FBE90FF8D99600B59D15 /* libavcodec.dylib */,
+				4563FBEA0FF8D99600B59D15 /* libswscale.dylib */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4563FBA30FF8D93100B59D15 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4563FBBD0FF8D94B00B59D15 /* ReaderCore.h in Headers */,
+				4563FBBF0FF8D94B00B59D15 /* Video.h in Headers */,
+				4563FBC10FF8D94B00B59D15 /* VideoCodec.h in Headers */,
+				4563FBC30FF8D94B00B59D15 /* VideoFormat.h in Headers */,
+				4563FBC50FF8D94B00B59D15 /* VideoFrame.h in Headers */,
+				4563FBC90FF8D94B00B59D15 /* mediawrapperhelp.h in Headers */,
+				4563FBCA0FF8D94B00B59D15 /* mediawrapper.h in Headers */,
+				452887AD10072AE500D7B868 /* VideoOutputFormat.h in Headers */,
+				45288806100736C300D7B868 /* VideoStream.h in Headers */,
+				E3583A2A1189BC4E00070903 /* MediaId.h in Headers */,
+				E335A910119727C500C34510 /* InputVideo.h in Headers */,
+				E3E8C728119CEDE2007FDC20 /* OutputVideo.h in Headers */,
+				E338F9E31393177700A38254 /* ColorFormat.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4563FBA60FF8D93100B59D15 /* mediawrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4563FBCB0FF8D94B00B59D15 /* Build configuration list for PBXNativeTarget "mediawrapper" */;
+			buildPhases = (
+				4563FBA30FF8D93100B59D15 /* Headers */,
+				4563FBA40FF8D93100B59D15 /* Sources */,
+				4563FBA50FF8D93100B59D15 /* Frameworks */,
+				D20281141403A3AF0010E723 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mediawrapper;
+			productName = videoreader;
+			productReference = 4563FBA70FF8D93100B59D15 /* libmediawrapper.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
+			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "build" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* util_c */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4563FBA60FF8D93100B59D15 /* mediawrapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D20281141403A3AF0010E723 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -change /opt/local/lib/libmediawrapper.dylib @executable_path/libmediawrapper.dylib $TARGET_BUILD_DIR/libmediawrapper.dylib\ninstall_name_tool -change /usr/local/lib/libavutil.dylib @executable_path/libavutil.dylib $TARGET_BUILD_DIR/libmediawrapper.dylib\ninstall_name_tool -change /usr/local/lib/libavformat.dylib @executable_path/libavformat.dylib $TARGET_BUILD_DIR/libmediawrapper.dylib\ninstall_name_tool -change /usr/local/lib/libavcodec.dylib @executable_path/libavcodec.dylib $TARGET_BUILD_DIR/libmediawrapper.dylib\ninstall_name_tool -change /usr/local/lib/libswscale.dylib @executable_path/libswscale.dylib $TARGET_BUILD_DIR/libmediawrapper.dylib\ninstall_name_tool -change /usr/local/lib/libavcore.dylib @executable_path/libavcore.dylib $TARGET_BUILD_DIR/libmediawrapper.dylib";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4563FBA40FF8D93100B59D15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4563FBBC0FF8D94B00B59D15 /* ReaderCore.cpp in Sources */,
+				4563FBBE0FF8D94B00B59D15 /* Video.cpp in Sources */,
+				4563FBC00FF8D94B00B59D15 /* VideoCodec.cpp in Sources */,
+				4563FBC20FF8D94B00B59D15 /* VideoFormat.cpp in Sources */,
+				4563FBC40FF8D94B00B59D15 /* VideoFrame.cpp in Sources */,
+				4563FBC80FF8D94B00B59D15 /* mediawrapper.cpp in Sources */,
+				452887AE10072AE500D7B868 /* VideoOutputFormat.cpp in Sources */,
+				45288807100736C300D7B868 /* VideoStream.cpp in Sources */,
+				E335A911119727C500C34510 /* InputVideo.cpp in Sources */,
+				E3E8C729119CEDE2007FDC20 /* OutputVideo.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB914F08733D8E0010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(EFFECTIVE_PLATFORM_NAME)";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../ffmpeg/osx/x64/include;
+				LIBRARY_SEARCH_PATHS = ../../ffmpeg/osx/x64/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SYMROOT = "../binaries/OSX/$(CONFIGURATION)";
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		1DEB915008733D8E0010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(EFFECTIVE_PLATFORM_NAME)";
+				ENABLE_OPENMP_SUPPORT = NO;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../ffmpeg/osx/x64/include;
+				LIBRARY_SEARCH_PATHS = ../../ffmpeg/osx/x64/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SYMROOT = "../binaries/OSX/$(CONFIGURATION)";
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+		4563FBA80FF8D93100B59D15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_OPENMP_SUPPORT = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = mediawrapper;
+			};
+			name = Debug;
+		};
+		4563FBA90FF8D93100B59D15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_OPENMP_SUPPORT = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = mediawrapper;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "build" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB914F08733D8E0010E9CD /* Debug */,
+				1DEB915008733D8E0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4563FBCB0FF8D94B00B59D15 /* Build configuration list for PBXNativeTarget "mediawrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4563FBA80FF8D93100B59D15 /* Debug */,
+				4563FBA90FF8D93100B59D15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

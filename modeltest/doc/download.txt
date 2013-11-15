@@ -1,0 +1,1 @@
+downloaded from http://qt.gitorious.org/qt/qt/trees/v4.7.3/tests/auto/modeltest

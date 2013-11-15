@@ -1,0 +1,72 @@
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Statistical Song Analysis</title>
+    </head>
+    <body style="font-size:12pt;font-family:helvetica">
+
+	<p><center><h2>Statistical Song Analysis</h2></center></p>
+
+        <p>The statistical song analysis can be devided into two steps. First the song is searched for pulses, which pass the checks using userdefined statistical options. Secondly statistical figures are calculated, using the pulse data that is left.  Statistical figures which are calculated are:</p>
+		
+		<ul>
+			<li>mean interpulse interval</li>
+			<li>mean cycles per pulse</li>
+			<li>mean train length (defined by the number of pulses inside a train</li>
+			<li>standard deviation of each mean</li>
+			<li>standard error of each standard deviation</li>
+		</ul>
+		
+		<p>Further when calculating statistical figures for more than one file, the mean mean, mean standard deviation and mean standard error are calculated using the statistical figures that were calculated before for each individual file.</p>
+        
+		<p><b>Example:</b> The mean mean of 3 files is calculated by adding up the 3 mean values mean1, mean2, mean3 and devide them by 3. Like this each file should have equal impact. A file containing only 3 pulses has the same power as a file containing 100 pulses.</p>
+		
+        <br />
+        <br />
+        <table align="center" cellpadding="2" cellspacing="1" border="0" width="100%">
+        <tr valign="top" bgcolor="#f0f0f0">
+        <td><center><img src="images/statisticoptions.png" /></center></td>
+        </tr>
+        </table>
+
+        <br />
+        <br />
+        <p><b>Statistical Options:</b> The user can set the parameters the statistical song analysis should run with, by choosing "Settings" in the menubar --> "Song Analysis" --> "Song Statistics Options".
+		
+		Following parameters are available:
+		<ul> <h3>IPI Options:</h3>
+			<li><b>Min. train length (pulses):</b> Defines how many pulses a train must have, so that pulses inside this train are taken into account for statistical IPI calculations.</li>
+			<li><b>Minimal IPI distance (ms):</b> The minimum distance in milliseconds two neighboring pulses must have to be taken into account for the <b>whole</b> statistical analysis (IPIs, trains, cycles per pulse, cycles per minute).</li>
+			<li><b>Maximal IPI distance (ms):</b> The maximum distance in milliseconds two neighboring pulses must have to be taken into account for the <b>whole</b> statistical analysis (IPIs, trains, cycles per pulse, cycles per minute).</li>
+			<li><b>IPI bin size (ms):</b> Defines the range of one bin in milliseconds. (For graphical representation of calculated statistical IPI data)</li>
+		</ul>
+		<ul> <h3>Train Options</h3>
+			<li><b>Min. train length (pulses):</b> Defines how many pulses a train must have, so that pulses inside this train are taken into account for statistical train calculations.</li>
+			<li><b>Train bin size (pulses):</b> Defines the pulse range number inside one bin. (For graphical representation of calculated statistical train data)</li>
+			<li><b>Pulse/min excluding pulses in groups of:</b>Defines how many pulses must be in a group to be taken into account for calculation of the pulses per minute.</li>
+		</ul>
+		<ul> <h3>Cycle Options</h3>
+			<li><b>Min. train length (pulses):</b> Defining how many pulses a train must have, so that pulses inside the train are taken into account for statistical cycles per pulse calculations.</li>
+			<li><b>Min. number of cycles (#):</b> Defining how many cycles a pulse must have to be taken into account for statistical cycles per pulse calculations.</li>
+		</ul>
+		<ul> <h3>Batchrun Options</h3>
+			<li><b>Min. number of pulses (#):</b> The minimum number of pulses a song must have, to be taken into account for the batchrun calculations. This option concerns the mean, standard deviation and standard error for cycles per pulse and pulses per minute. </li>
+			<li><b>Min. number of IPIs (#):</b> The minimum number of IPIs a song must have, to be taken into account for the batchrun calculations. This option concerns the mean, standard deviation and standard error for IPIs.</li>
+			<li><b>Min. number of trains (#):</b> The minimum number of trains a song must have, to be taken into account for the batchrun calculations. This option concerns the mean, standard deviation and standard error for trains.</li>
+		</ul>
+		</p>
+		
+		<p>The number of pulses that are used for calculating statistical figures on IPIs, trains and cycles per pulse are determined seperately. Only the minimal and maximal IPI distances are used to determine all real pulses, which form the basis for all further calculations.</p>
+		
+		<p>Cycles per pulse count: After the pulses of a song were detected, it is necessary to determine the cycles per pulse (cpp) count. To get this number all the negative peaks and all the positive peaks of a pulse are counted. The smaller one of this two sums is taken as cpp count. A Peak starts at height zero and ends at height zero. The heighest value between those two points represents the peak height.</p>
+
+        <br />
+        <br />
+        <p>
+        See also: <a href="./pages/songanalysis/songanalysis.html">Song Analysis</a>, <a href="./pages/songanalysis/pulsedetection.html">Pulse Detection</a> and <a href="./pages/workspace/workspace.html">Workspace</a>
+        </p>
+    </body>
+</html>
+
+
+
