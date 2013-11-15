@@ -128,8 +128,6 @@ void Video::rewind()
 	inputVideo->seek(0);
 }
 
-void Video::readWaveFile(const std::string& path)
-{
 	struct WaveHeader {
 		char chunkID[4];
 		int32_t chunkSize;
@@ -145,6 +143,9 @@ void Video::readWaveFile(const std::string& path)
 		char subchunk2ID[4];
 		int32_t subchunk2Size;
 	};
+
+void Video::readWaveFile(const std::string& path)
+{
 	BOOST_STATIC_ASSERT(sizeof(WaveHeader) == 44);
 
 	WaveHeader waveHeader = {};

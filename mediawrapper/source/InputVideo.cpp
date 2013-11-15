@@ -30,6 +30,7 @@ extern "C"
 {
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
+#define AVCODEC_MAX_AUDIO_FRAME_SIZE 192000
 }
 
 namespace mw

@@ -18,7 +18,7 @@
 #include "ArenaItem.hpp"
 #include "MateBook.hpp"
 #include "Project.hpp"
-#include "FileUtilities.hpp"
+#include "FileUtilities2.hpp"
 #include "Version.hpp"
 #include "ConfigDialog.hpp"
 #include "../../common/source/serialization.hpp"
@@ -196,7 +196,7 @@ void FileItem::removeData()
 {
 	removeChildren(0, childCount());
 	try {
-		FileUtilities::removeDirectory(absoluteDataDirectory());
+		FileUtilities2::removeDirectory(absoluteDataDirectory());
 	} catch (RuntimeError& e) {
 		std::cerr << "FileItem::removeData: " << e.what() << std::endl;
 	}

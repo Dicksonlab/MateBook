@@ -156,7 +156,7 @@ namespace mw
 		 *	basic codec information
 		 */
 		codecContext_->codec_type = AVMEDIA_TYPE_VIDEO;
-		codecContext_->codec_id = CodecID(mCodecID);
+		codecContext_->codec_id = AVCodecID(mCodecID);
 		codecContext_->bit_rate = mBitRate;
 		codecContext_->bit_rate_tolerance = 4000000;
 		codecContext_->width = mWidth;

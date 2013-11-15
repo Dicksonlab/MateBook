@@ -8,7 +8,7 @@
 #include "GroupTree.hpp"
 #include "ItemTree.hpp"
 #include "RuntimeError.hpp"
-#include "FileUtilities.hpp"
+#include "FileUtilities2.hpp"
 #include "MateBook.hpp"
 #include "../../common/source/serialization.hpp"
 #include "Version.hpp"
@@ -95,7 +95,7 @@ Project::~Project()
 {
 	if (unnamed) {
 		try {
-			FileUtilities::removeDirectory(directory);
+			FileUtilities2::removeDirectory(directory);
 		} catch (...) {
 		}
 	}
@@ -192,16 +192,16 @@ void Project::saveAs(const QString &filePath)
 	QDir newDirectory(newDirectoryString);
 	if (unnamed) {
 		try {
-			FileUtilities::moveDirectory(directory, newDirectory);
+			FileUtilities2::moveDirectory(directory, newDirectory);
 		} catch (RuntimeError& e) {
-			FileUtilities::copyDirectory(directory, newDirectory);
+			FileUtilities2::copyDirectory(directory, newDirectory);
 			try {
-				FileUtilities::removeDirectory(directory);
+				FileUtilities2::removeDirectory(directory);
 			} catch (...) {
 			}
 		}
 	} else {
-		FileUtilities::copyDirectory(directory, newDirectory);
+		FileUtilities2::copyDirectory(directory, newDirectory);
 	}
 
 	unnamed = false;

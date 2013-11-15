@@ -14,7 +14,7 @@
 #include "FileItem.hpp"
 #include "MateBook.hpp"
 #include "Project.hpp"
-#include "FileUtilities.hpp"
+#include "FileUtilities2.hpp"
 #include "Version.hpp"
 #include "ConfigDialog.hpp"
 #include "../../common/source/serialization.hpp"
@@ -143,7 +143,7 @@ int ArenaItem::childIndex() const
 void ArenaItem::removeData()
 {
 	try {
-		FileUtilities::removeDirectory(absoluteDataDirectory());
+		FileUtilities2::removeDirectory(absoluteDataDirectory());
 	} catch (RuntimeError& e) {
 		std::cerr << "ArenaItem::removeData: " << e.what() << std::endl;
 	}
@@ -552,7 +552,7 @@ void ArenaItem::resetFlyTracking()
 		absoluteDataDirectory().remove("track.tsv");
 		QString binariesDirPath = absoluteDataDirectory().filePath("track");
 		try {
-			FileUtilities::removeDirectory(QDir(binariesDirPath));
+			FileUtilities2::removeDirectory(QDir(binariesDirPath));
 		} catch (RuntimeError& e) {
 				std::cerr << "ArenaItem::resetFlyTracking: " << e.what() << std::endl;
 		}

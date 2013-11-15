@@ -464,7 +464,7 @@ void Arena::track(const cv::Mat& entireFrame, const size_t videoFrameNumber, con
 			}
 		}
 
-		std::vector<std::pair<float, size_t>> distances;	// distance, index into mergeableBodyContours
+		std::vector<std::pair<float, size_t> > distances;	// distance, index into mergeableBodyContours
 		for (size_t bodyIndex = 0; bodyIndex != mergeableBodyContours.size(); ++bodyIndex) {
 			if (bodyIndex != smallestBody &&	// don't merge a body to itself
 				mergeableBodyContours[bodyIndex].wingIndex == mergeableBodyContours[smallestBody].wingIndex) {
