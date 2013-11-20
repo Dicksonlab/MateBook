@@ -28,9 +28,9 @@ ClusterJob::ClusterJob(const QString& sshClient, const QString& sshTransferHost,
 		;
 	#else
 		sshParameters
-			<< "-o" << "BatchMode yes"	// never prompt (for passwords, etc...)
-			<< "-o" << "UserKnownHostsFile /dev/null"	// so we don't mess with known_hosts
-			<< "-o" << "StrictHostKeyChecking no"	// makes us vulnerable to man-in-the-middle attacks, but is more convenient for users
+            << "-o" << "BatchMode=yes"	// never prompt (for passwords, etc...)
+            << "-o" << "UserKnownHostsFile=/dev/null"	// so we don't mess with known_hosts
+            << "-o" << "StrictHostKeyChecking=no"	// makes us vulnerable to man-in-the-middle attacks, but is more convenient for users
 			<< sshUsername + "@" + sshTransferHost
 			<< sshEnvironment + " && "
 		;
@@ -98,7 +98,10 @@ void ClusterJob::start()
 //	connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(readyReadStandardOutput()));
 //	connect(process, SIGNAL(readyReadStandardError()), this, SLOT(readyReadStandardError()));
 
-	process->start(sshClient, QStringList() << sshParameters << executable << arguments);
+    QStringList strlist;
+    strlist << sshParameters << executable << arguments;
+    QString str = strlist.join(" ");
+    process->start(sshClient, strlist);
 }
 
 void ClusterJob::stop()

@@ -63,7 +63,7 @@ export CMAKE_INCLUDE_PATH=${MB_DIR}/usr/include:$CMAKE_INCLUDE_PATH
 export CMAKE_LIBRARY_PATH=${MB_DIR}/usr/lib:$CMAKE_LIBRARY_PATH
 mkdir release
 cd release
-${MB_DIR}/usr/bin/cmake -D WITH_TIFF=OFF -D WITH_JASPER=OFF - D WITH_OPENEXR=OFF -D ZLIB_LIBRARY=${MB_DIR}/usr/lib/libz.so.1.2.8 -D CMAKE_INSTALL_PREFIX=${MB_DIR}/usr/ ..  #  -G "Xcode"
+${MB_DIR}/usr/bin/cmake -D WITH_TIFF=OFF -D WITH_JASPER=OFF - D WITH_OPENEXR=OFF -D ZLIB_LIBRARY=${MB_DIR}/usr/lib/libz.so.${ZLIB_VER} -D CMAKE_INSTALL_PREFIX=${MB_DIR}/usr/ ..  #  -G "Xcode"
 make
 make install
 

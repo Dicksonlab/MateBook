@@ -955,7 +955,7 @@ QStringList FileItem::getArguments(const QString& settingsFileName, bool preproc
 Job* FileItem::createJob(const QString& settingsFileName, bool preprocess, bool track, bool postprocess) const
 {
 	QStringList arguments = getArguments(settingsFileName, preprocess, track, postprocess);
-	if (getMateBook()->getConfigDialog()->isClusterProcessingEnabled() && canUseCluster()) {
+    if (getMateBook()->getConfigDialog()->isClusterProcessingEnabled() && canUseCluster()) {
 		return new ClusterJob(
 			getMateBook()->getConfigDialog()->getSshClient(),
 			getMateBook()->getConfigDialog()->getSshTransferHost(),
@@ -963,7 +963,7 @@ Job* FileItem::createJob(const QString& settingsFileName, bool preprocess, bool 
 			getMateBook()->getConfigDialog()->getSshPrivateKey(),
 			getMateBook()->getConfigDialog()->getSshEnvironment(),
 			getMateBook()->getConfigDialog()->getPollingInterval(),
-			QString("/projects/DIK.screen/tracker/") + QString::number(Version::current) + "/qsub_track.sh",
+			QString("/groups/dickson/dicksonlab/MateBook/MateBook/usr/bin/tracker/") + QString::number(Version::current) + "/qsub_track.sh",
 			arguments,
 			absoluteDataDirectory()
 		);
@@ -986,6 +986,7 @@ bool FileItem::canUseCluster() const
 		return (getFileName().startsWith("\\\\") || getFileName().startsWith("//")) &&
 			(absoluteDataDirectory().absolutePath().startsWith("\\\\") || absoluteDataDirectory().absolutePath().startsWith("//"));
 	#else
-		return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
-	#endif
+        // return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
+        return getFileName().startsWith("/Volumes/");
+    #endif
 }
