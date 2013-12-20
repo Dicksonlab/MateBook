@@ -1,8 +1,11 @@
+#!/bin/bash
 #set -u
 #set -e
 #
 #rm -rf MateBook.xcodeproj.old
 #mv MateBook.xcodeproj MateBook.xcodeproj.old
+
+MB_DIR=/Users/arthurb/src/MateBook
 
 cat<<END_OF_HEAD>MateBook.pro
 QT += core gui network xml opengl phonon
@@ -10,8 +13,22 @@ TEMPLATE = app
 TARGET = MateBook
 CONFIG += debug console
 #LIBS += -L"../../mediawrapper/binaries/OSX/Debug" -lmediawrapper
-LIBS += -L"/Users/arthurb/src/MateBook/usr/lib" -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale
-INCLUDEPATH = /Users/arthurb/src/Matebook/usr/include
+LIBS += -L${MB_DIR}/usr/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale
+#LIBS += ${MB_DIR}/usr/lib/libopencv_core.dylib
+#LIBS += ${MB_DIR}/usr/lib/libopencv_highgui.dylib
+#LIBS += ${MB_DIR}/usr/lib/libopencv_imgproc.dylib
+#LIBS += ${MB_DIR}/usr/lib/libboost_system.dylib
+#LIBS += ${MB_DIR}/usr/lib/libboost_filesystem.dylib
+#LIBS += ${MB_DIR}/usr/lib/libswresample.dylib
+#LIBS += ${MB_DIR}/usr/lib/libswscale.dylib
+#LIBS += ${MB_DIR}/usr/lib/libmp3lame.dylib
+#LIBS += ${MB_DIR}/usr/lib/libz.dylib
+#LIBS += ${MB_DIR}/usr/lib/libavdevice.dylib
+#LIBS += ${MB_DIR}/usr/lib/libavfilter.dylib
+#LIBS += ${MB_DIR}/usr/lib/libavformat.dylib
+#LIBS += ${MB_DIR}/usr/lib/libavutil.dylib
+#LIBS += ${MB_DIR}/usr/lib/libavcodec.dylib
+INCLUDEPATH = ${MB_DIR}/usr/include
 #ICON = icon.icns
 END_OF_HEAD
 
