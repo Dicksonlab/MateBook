@@ -1,3 +1,7 @@
+date
+
+hostname
+
 #$ -S /bin/sh
 #$ -q dickson.q
 #$ -q nonofficehours.q
@@ -8,8 +12,6 @@ set -e
 
 umask 007
 
-hostname
-date
 pwd
 echo "$0 got MB_VERSION $MB_VERSION"
 echo "$0 got MB_VIDEO $MB_VIDEO"
