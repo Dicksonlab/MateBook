@@ -1,5 +1,12 @@
-install Qt 4.8.5 <http://qt-project.org/downloads>
-  if you haven't already
+install the dependencies if needed
+  on os x:
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    brew install cmake ffmpeg boost opencv qt
+  on linux:
+    yum install cmake ffmpeg boost opencv qt
+
+compile MateBook
+  cd MateBook && make gui
 
 establish an SSH key pair with the cluster:
   http://support.apple.com/kb/PH8275

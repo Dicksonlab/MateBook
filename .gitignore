@@ -1,0 +1,2 @@
+gui/moc_*
+gui/*.o
