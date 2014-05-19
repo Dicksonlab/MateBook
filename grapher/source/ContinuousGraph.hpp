@@ -15,7 +15,7 @@
 #include <string>
 #include <limits>
 #include "VertexBuffer.hpp"
-#include "precision.hpp"
+#include "Precision.hpp"
 
 /**
  *	@class	ContinuousGraph

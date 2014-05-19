@@ -9,7 +9,7 @@
 #define __video_h
 
 #include <string>
-#ifdef WIN32
+#if defined(WIN32) || defined(LINUX)
 #include <stdint.h>
 #endif
 

@@ -19,7 +19,7 @@ typedef __int64 int64_t;
 
 #include <QVector3D>
 
-#include "precision.hpp"
+#include "Precision.hpp"
 
 /**
  *	@class	AbstractGraph

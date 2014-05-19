@@ -5,31 +5,21 @@
 #rm -rf MateBook.xcodeproj.old
 #mv MateBook.xcodeproj MateBook.xcodeproj.old
 
-MB_DIR=/Users/arthurb/src/MateBook
-
 cat<<END_OF_HEAD>MateBook.pro
 QT += core gui network xml opengl phonon
 TEMPLATE = app
 TARGET = MateBook
+DEFINES = LINUX
 CONFIG += debug console
 #LIBS += -L"../../mediawrapper/binaries/OSX/Debug" -lmediawrapper
-LIBS += -L${MB_DIR}/usr/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale
-#LIBS += ${MB_DIR}/usr/lib/libopencv_core.dylib
-#LIBS += ${MB_DIR}/usr/lib/libopencv_highgui.dylib
-#LIBS += ${MB_DIR}/usr/lib/libopencv_imgproc.dylib
-#LIBS += ${MB_DIR}/usr/lib/libboost_system.dylib
-#LIBS += ${MB_DIR}/usr/lib/libboost_filesystem.dylib
-#LIBS += ${MB_DIR}/usr/lib/libswresample.dylib
-#LIBS += ${MB_DIR}/usr/lib/libswscale.dylib
-#LIBS += ${MB_DIR}/usr/lib/libmp3lame.dylib
-#LIBS += ${MB_DIR}/usr/lib/libz.dylib
-#LIBS += ${MB_DIR}/usr/lib/libavdevice.dylib
-#LIBS += ${MB_DIR}/usr/lib/libavfilter.dylib
-#LIBS += ${MB_DIR}/usr/lib/libavformat.dylib
-#LIBS += ${MB_DIR}/usr/lib/libavutil.dylib
-#LIBS += ${MB_DIR}/usr/lib/libavcodec.dylib
-INCLUDEPATH = ${MB_DIR}/usr/include
-#ICON = icon.icns
+LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale
+INCLUDEPATH += /usr/include/QtCore
+INCLUDEPATH += /usr/include/QtNetwork
+INCLUDEPATH += /usr/include/QtGui
+INCLUDEPATH += /usr/include/QtOpenGL
+INCLUDEPATH += /usr/include/QtXml
+INCLUDEPATH += /usr/include/GL
+INCLUDEPATH += /usr/include
 END_OF_HEAD
 
 echo "HEADERS += \\">>MateBook.pro
@@ -74,8 +64,10 @@ cat<<END_OF_TAIL>>MateBook.pro
 RESOURCES += qt/matebook.qrc
 END_OF_TAIL
 
+
 #qmake -spec macx-xcode MateBook.pro
-qmake -spec macx-g++ MateBook.pro
+#qmake -spec macx-g++ MateBook.pro
+QMAKESPEC=/usr/lib64/qt4/mkspecs/linux-g++ qmake
 
 #cp MateBook.xcodeproj/qt_makeqmake.mak MateBook.xcodeproj.old/
 #cp MateBook.xcodeproj/qt_preprocess.mak MateBook.xcodeproj.old/

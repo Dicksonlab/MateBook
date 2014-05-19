@@ -13,7 +13,7 @@
 #include <phonon/mediaobject.h>
 #include <phonon/volumeslider.h>
 #include <phonon/backendcapabilities.h>
-#include <Phonon/MediaSource>
+#include <phonon/MediaSource>
 
 #include "Video.hpp"
 
