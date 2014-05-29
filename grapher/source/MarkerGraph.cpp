@@ -6,12 +6,11 @@
  *  Copyright 2010 by grasberger.org. All rights reserved.
  *
  */
-#if defined(WIN32)
-#include <GL/glew.h>
-#include <GL/glu.h>
+#if defined(WIN32) || defined(LINUX)
+  #include <GL/glu.h>
+  #include <GL/gl.h>
 #else
-#include <QtOpenGL>
-#include <OpenGL/glu.h>
+  #include <QtOpenGL>
 #endif
 
 #include "MarkerGraph.hpp"

@@ -9,6 +9,8 @@
 #include "../../tracker/source/FlyAttributes.hpp"
 #include "../../tracker/source/PairAttributes.hpp"
 
+#include <memory>
+
 class TrackingResults {
 public:
 	TrackingResults(const std::string& fileName, const std::string& contourFileName, const std::string& smoothHistogramFileName);

@@ -1,5 +1,5 @@
-#if defined(WIN32)
-	#include <GL/glew.h>
+#if defined(WIN32) || defined(LINUX)
+	#include <GL/gl.h>
 #else
 	#include <QtOpenGL>
 #endif

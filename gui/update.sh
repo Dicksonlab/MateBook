@@ -4,16 +4,13 @@ cat<<END_OF_HEAD>MateBook.pro
 QT += core gui network xml opengl phonon
 TEMPLATE = app
 TARGET = MateBook
-DEFINES = LINUX
+DEFINES += LINUX GL_GLEXT_PROTOTYPES
 CONFIG += debug console
-LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale
-INCLUDEPATH += /usr/include/QtCore
-INCLUDEPATH += /usr/include/QtNetwork
-INCLUDEPATH += /usr/include/QtGui
-INCLUDEPATH += /usr/include/QtOpenGL
-INCLUDEPATH += /usr/include/QtXml
-INCLUDEPATH += /usr/include/GL
-INCLUDEPATH += /usr/include
+LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale -lGLU
+INCLUDEPATH += ${MB_DIR}/usr/include
+INCLUDEPATH += ${MB_DIR}/usr/include/QtCore
+INCLUDEPATH += ${MB_DIR}/usr/include/QtGui
+INCLUDEPATH += ${MB_DIR}/usr/include/QtOpenGL
 END_OF_HEAD
 
 echo "HEADERS += \\">>MateBook.pro
@@ -54,5 +51,5 @@ cat<<END_OF_TAIL>>MateBook.pro
 RESOURCES += qt/matebook.qrc
 END_OF_TAIL
 
-QMAKESPEC=/usr/lib64/qt4/mkspecs/linux-g++ qmake
+QMAKESPEC=${MB_DIR}/usr/mkspecs/linux-g++ ${MB_DIR}/usr/bin/qmake
 #qmake -spec macx-g++ MateBook.pro

@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include "RuntimeError.hpp"
 
+#include <memory>
+
 TrackingResults::TrackingResults(const std::string& fileName, const std::string& contourFileName, const std::string& smoothHistogramFileName) :
 	fileName(fileName),
 	contourFileName(contourFileName),
