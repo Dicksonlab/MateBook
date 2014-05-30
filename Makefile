@@ -1,12 +1,16 @@
 #MB_DIR=/Users/arthurb/src/MateBook
-#LIB_EXT=dylib
-#MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
-MB_DIR=/home/arthurb/src/MateBook
-LIB_EXT=so
+MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
+#MB_DIR=/home/arthurb/src/MateBook
 
 MB_VER=2141
 
 OS := $(shell uname)
+
+ifeq ($(OS), Darwin)
+	LIB_EXT=dylib
+else
+	LIB_EXT=so
+endif
 
 LAME_VER=3.99.5
 YASM_VER=1.2.0
@@ -69,7 +73,7 @@ $(LIB_DIR)/libQtCore.$(LIB_EXT) \
 $(LIB_DIR)/libQtGui.$(LIB_EXT) \
 $(LIB_DIR)/libQtOpenGL.$(LIB_EXT)
 
-DEPS = $(CMAKE_BIN) $(FFMPEG_LIBS) $(BOOST_LIBS) $(LAME_LIBS) $(OPENCV_LIBS) $(YASM_LIBS) $(ZLIB) $(QT_LIBS)
+DEPS = $(CMAKE_BIN) $(FFMPEG_LIBS) $(BOOST_LIBS) $(LAME_LIBS) $(OPENCV_LIBS) $(YASM_LIBS) $(ZLIB)
 
 all : gui tracker
 gui : $(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook
@@ -171,7 +175,7 @@ ${MB_DIR}/deps/zlib-${ZLIB_VER}.tar.gz :
 	cd ${MB_DIR}/deps/zlib-${ZLIB_VER} && ./configure --prefix=${MB_DIR}/usr
 	cd ${MB_DIR}/deps/zlib-${ZLIB_VER} && make && make install
 
-$(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook : $(DEPS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
+$(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook : $(DEPS) $(QT_LIBS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
 	cd gui && MB_DIR=${MB_DIR} ./update.sh && QTDIR=$(MB_DIR)/deps/qt-everywhere-opensource-src-${QT_VER} make
 	
 ifeq ($(OS), Darwin)
@@ -358,5 +362,6 @@ installtracker :
 	mkdir -p $(BIN_DIR)/tracker/${MB_VER}
 	cp $(MB_DIR)/tracker/build.gcc/tracker $(BIN_DIR)/tracker/${MB_VER}
 	cp $(MB_DIR)/tracker/source/*.sh $(BIN_DIR)/tracker/${MB_VER}
+	chmod a+x $(BIN_DIR)/tracker/${MB_VER}/*
 endif
 .PHONY : installtracker
