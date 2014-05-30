@@ -985,6 +985,9 @@ bool FileItem::canUseCluster() const
 	#if defined(WIN32)
 		return (getFileName().startsWith("\\\\") || getFileName().startsWith("//")) &&
 			(absoluteDataDirectory().absolutePath().startsWith("\\\\") || absoluteDataDirectory().absolutePath().startsWith("//"));
+	#elif defined(LINUX)
+        // return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
+        return getFileName().startsWith("/groups/");
 	#else
         // return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
         return getFileName().startsWith("/Volumes/");

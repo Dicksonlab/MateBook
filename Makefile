@@ -1,6 +1,7 @@
 #MB_DIR=/Users/arthurb/src/MateBook
 #LIB_EXT=dylib
-MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
+#MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
+MB_DIR=/home/arthurb/src/MateBook
 LIB_EXT=so
 
 MB_VER=2141
@@ -318,6 +319,10 @@ installgui :
 	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
         $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libswscale.2.dylib ; \
 	done
+
+else
+installgui : 
+	cp $(MB_DIR)/gui/MateBook $(BIN_DIR)
 endif
 
 $(MB_DIR)/gui/MateBook.app/Contents/MacOS/tracker : $(DEPS) $(MB_DIR)/tracker/source/*.cpp $(MB_DIR)/tracker/source/*.hpp
