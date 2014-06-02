@@ -2,7 +2,8 @@
 	#include <GL/glu.h>
 	#include <GL/gl.h>
 #else
-	#include <QtOpenGL>
+	#include <OpenGL/glu.h>
+	#include <OpenGL/gl.h>
 #endif
 
 #include "LineGraph.hpp"

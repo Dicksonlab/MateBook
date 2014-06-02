@@ -1,7 +1,7 @@
 #if defined(WIN32) || defined(LINUX)
 	#include <GL/gl.h>
 #else
-	#include <QtOpenGL>
+	#include <OpenGL/gl.h>
 #endif
 
 #include <QtGui>

@@ -1,16 +1,20 @@
 #!/bin/bash
 
+if [ "$1" == "Darwin" ] ; then
+  OS=MACOS
+else
+  OS=LINUX 
+fi
+
 cat<<END_OF_HEAD>MateBook.pro
 QT += core gui network xml opengl phonon
 TEMPLATE = app
 TARGET = MateBook
-DEFINES += LINUX GL_GLEXT_PROTOTYPES
+DEFINES += ${OS} GL_GLEXT_PROTOTYPES
 CONFIG += debug console
 LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale -lGLU
 INCLUDEPATH += ${MB_DIR}/usr/include
-INCLUDEPATH += ${MB_DIR}/usr/include/QtCore
-INCLUDEPATH += ${MB_DIR}/usr/include/QtGui
-INCLUDEPATH += ${MB_DIR}/usr/include/QtOpenGL
+LIBPATH += ${MB_DIR}/usr/lib
 END_OF_HEAD
 
 echo "HEADERS += \\">>MateBook.pro
@@ -51,5 +55,8 @@ cat<<END_OF_TAIL>>MateBook.pro
 RESOURCES += qt/matebook.qrc
 END_OF_TAIL
 
-QMAKESPEC=${MB_DIR}/usr/mkspecs/linux-g++ ${MB_DIR}/usr/bin/qmake
-#qmake -spec macx-g++ MateBook.pro
+if [ "$1" == "Darwin" ] ; then
+  QMAKESPEC=/usr/local/Qt4.8/mkspecs/macx-g++ qmake
+else
+  QMAKESPEC=/usr/lib/qt4/mkspecs/linux-g++ qmake
+fi

@@ -8,16 +8,22 @@ your own.
 gui
 ---
 
-first clone the latest version from the git repository
+first use a package manager to install Qt 4.8.  on a mac:
+
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  brew doctor && brew install qt
+
+on fedora linux:
+
+  yum install qt-devel
+
+then clone the latest version of MateBook from the git repository
 
   git clone /groups/dickson/dicksonlab/MateBook/MateBook.git
 
 to compile MateBook
 
-  edit Makefile to set
-    MB_DIR to your local MateBook directory, and
-    NPROCS to the number of CPU cores in your machine
-
+  edit Makefile to set MB_DIR to your local MateBook directory
   cd MateBook && make && make install
 
 to subsequently upgrade to the latest version 
@@ -28,7 +34,7 @@ tracker
 -------
 
 repeat the above clone and Makefile edits on a compute node of the cluster
-and then
+(skipping the Qt installation) and then
 
   cd MateBook && make tracker && make installtracker
 

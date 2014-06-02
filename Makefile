@@ -1,5 +1,5 @@
-#MB_DIR=/Users/arthurb/src/MateBook
-MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
+MB_DIR=/Users/arthurb/src/MateBook
+#MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
 #MB_DIR=/home/arthurb/src/MateBook
 
 MB_VER=2141
@@ -19,12 +19,10 @@ CMAKE_VER=2.8.12.1
 OPENCV_VER=2.4.7# 2.4.7 has a bug with MD5 on linux
 BOOST_VER=1_54_0
 ZLIB_VER=1.2.8
-QT_VER=4.8.6
-#GSTREAMER_VER=0.10.3
 
-LIB_DIR=$(MB_DIR)/usr/lib
-BIN_DIR=$(MB_DIR)/usr/bin
-INCLUDE_DIR=$(MB_DIR)/usr/include
+LIB_DIR=${MB_DIR}/usr/lib
+BIN_DIR=${MB_DIR}/usr/bin
+INCLUDE_DIR=${MB_DIR}/usr/include
 
 CMAKE_BIN = $(BIN_DIR)/cmake
 
@@ -62,16 +60,11 @@ $(LIB_DIR)/libopencv_stitching.$(LIB_EXT) \
 $(LIB_DIR)/libopencv_superres.$(LIB_EXT) \
 $(LIB_DIR)/libopencv_video.$(LIB_EXT) \
 $(LIB_DIR)/libopencv_videostab.$(LIB_EXT) \
-$(LIB_DIR)/libopencv_ts.a
+$(LIB_DIR)/libopencv_ts.$(LIB_EXT)
 
 YASM_LIBS = $(LIB_DIR)/libyasm.a
 
 ZLIB = $(LIB_DIR)/libz.$(LIB_EXT)
-
-QT_LIBS = \
-$(LIB_DIR)/libQtCore.$(LIB_EXT) \
-$(LIB_DIR)/libQtGui.$(LIB_EXT) \
-$(LIB_DIR)/libQtOpenGL.$(LIB_EXT)
 
 DEPS = $(CMAKE_BIN) $(FFMPEG_LIBS) $(BOOST_LIBS) $(LAME_LIBS) $(OPENCV_LIBS) $(YASM_LIBS) $(ZLIB)
 
@@ -101,6 +94,7 @@ cleandeps : cleancmake cleanffmpeg cleanboost cleanlame cleanopencv cleanyasm cl
 cleangui :
 	rm -rf $(MB_DIR)/gui/*.o $(MB_DIR)/gui/moc_*
 	rm -rf $(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook
+	rm -rf $(MB_DIR)/gui/MateBook.app/Contents/Frameworks
 cleantracker :
 	rm -rf $(MB_DIR)/tracker/build.gcc/tracker
 	rm -rf $(MB_DIR)/gui/MateBook.app/Contents/MacOS/tracker
@@ -109,18 +103,6 @@ cleantracker :
 clean : cleandeps cleangui cleantracker
 	rm -rf $(MB_DIR)/gui/MateBook.app $(MB_DIR)/usr $(MB_DIR)/deps/*
 .PHONY : cleancmake cleanffmpeg cleanboost cleanlame cleanopencv cleanyasm cleanzlib cleanqt cleandeps cleangui cleantracker cleanall
-
-#$(GSTREAMER_LIB) :
-#	mkdir -p ${MB_DIR}/deps
-#	curl -L http://gstreamer.freedesktop.org/src/qt-gstreamer/qt-gstreamer-${GSTREAMER_VER}.tar.gz > ${MB_DIR}/deps/qt-gstreamer-0.10.3.tar.gz
-#	cd ${MB_DIR}/deps && tar xvzf qt-gstreamer-${GSTREAMER_VER}.tar.gz
-
-$(QT_LIBS) : ${MB_DIR}/deps/qt-${QT_VER}.tar.gz
-${MB_DIR}/deps/qt-${QT_VER}.tar.gz :
-	curl -L http://download.qt-project.org/official_releases/qt/4.8/${QT_VER}/qt-everywhere-opensource-src-${QT_VER}.tar.gz > ${MB_DIR}/deps/qt-${QT_VER}.tar.gz
-	cd ${MB_DIR}/deps && tar xvzf qt-${QT_VER}.tar.gz
-	cd ${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} && ./configure --prefix=${MB_DIR}/usr/ -opensource <<<yes
-	cd ${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} && make && make install
 
 $(CMAKE_BIN) : ${MB_DIR}/deps/cmake-${CMAKE_VER}.tar.gz
 ${MB_DIR}/deps/cmake-${CMAKE_VER}.tar.gz :
@@ -133,7 +115,7 @@ $(FFMPEG_LIBS) : ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER}.tar.gz
 ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER}.tar.gz : $(YASM_LIBS) $(LAME_LIBS)
 	curl -L http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VER}.tar.gz > ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf ffmpeg-${FFMPEG_VER}.tar.gz
-	cd ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER} && PATH=${MB_DIR}/usr/bin:${PATH} ./configure --prefix=${MB_DIR}/usr/ --extra-cflags="-I${MB_DIR}/usr/include" --extra-ldflags="-L${MB_DIR}/usr/lib" --enable-libmp3lame --enable-gpl --enable-pthreads --arch=x86_64 --enable-ssse3 --disable-debug --disable-static --enable-shared  # --cc=clang
+	cd ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER} && PATH=${MB_DIR}/usr/bin:${PATH} ./configure --prefix=${MB_DIR}/usr/ --extra-cflags="-I${MB_DIR}/usr/include" --extra-ldflags="-L${MB_DIR}/usr/lib" --enable-libmp3lame --enable-gpl --enable-pthreads --arch=x86_64 --enable-ssse3 --disable-debug --enable-shared # --disable-static  --cc=clang
 	cd ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER} && PATH=${MB_DIR}/usr/bin:${PATH} make && make install
 
 $(BOOST_LIBS) : ${MB_DIR}/deps/boost_${BOOST_VER}.tar.gz
@@ -175,187 +157,29 @@ ${MB_DIR}/deps/zlib-${ZLIB_VER}.tar.gz :
 	cd ${MB_DIR}/deps/zlib-${ZLIB_VER} && ./configure --prefix=${MB_DIR}/usr
 	cd ${MB_DIR}/deps/zlib-${ZLIB_VER} && make && make install
 
-$(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook : $(DEPS) $(QT_LIBS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
-	cd gui && MB_DIR=${MB_DIR} ./update.sh && QTDIR=$(MB_DIR)/deps/qt-everywhere-opensource-src-${QT_VER} make
+$(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook : $(DEPS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
+	cd gui && MB_DIR=${MB_DIR} ./update.sh $(OS) && make
 	
 ifeq ($(OS), Darwin)
-installgui : 
-	mkdir -p $(MB_DIR)/gui/Matebook.app/Contents/Frameworks
-	
-	dylibs=( \
-	  libmp3lame.0.dylib \
-	  libpostproc.52.dylib \
-	  libopencv_core.2.4.dylib \
-	  libopencv_highgui.2.4.dylib \
-	  libopencv_imgproc.2.4.dylib \
-	  libboost_system.dylib \
-	  libboost_filesystem.dylib \
-	  libavdevice.55.dylib \
-	  libavfilter.3.dylib \
-	  libavformat.55.dylib \
-	  libavutil.52.dylib \
-	  libavcodec.55.dylib \
-	  libswresample.0.dylib \
-	  libswscale.2.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  cp -RL $(LIB_DIR)/$$x $(MB_DIR)/gui/Matebook.app/Contents/Frameworks ; \
-	done
-	chmod -R u+w $(MB_DIR)/gui/Matebook.app/Contents/Frameworks
-	
-	dylibs=( \
-	  lib/libopencv_core.2.4.dylib \
-	  lib/libopencv_highgui.2.4.dylib \
-	  lib/libopencv_imgproc.2.4.dylib \
-	  libboost_system.dylib \
-	  libboost_filesystem.dylib \
-	  $(LIB_DIR)/libavdevice.55.dylib \
-	  $(LIB_DIR)/libavfilter.3.dylib \
-	  $(LIB_DIR)/libavformat.55.dylib \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libavcodec.55.dylib \
-	  $(LIB_DIR)/libswresample.0.dylib \
-	  $(LIB_DIR)/libswscale.2.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -id @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/$$(basename $$x) ; \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook ; \
-	done
-	install_name_tool -id @executable_path/../Frameworks/libmp3lame.0.dylib \
-      $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libmp3lame.0.dylib
-	install_name_tool -id @executable_path/../Frameworks/libpostproc.52.dylib \
-      $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libpostproc.52.dylib
-	
-	dylibs=( \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libpostproc.52.dylib ; \
-	done
-	
-	dylibs=( \
-	  lib/libopencv_core.2.4.dylib \
-	  lib/libopencv_imgproc.2.4.dylib \
-	  $(LIB_DIR)/libavcodec.55.dylib \
-	  $(LIB_DIR)/libavformat.55.dylib \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libswscale.2.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libopencv_highgui.2.4.dylib ; \
-	done
-	
-	install_name_tool -change lib/libopencv_core.2.4.dylib @executable_path/../Frameworks/libopencv_core.2.4.dylib \
-      $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libopencv_imgproc.2.4.dylib
-	
-	install_name_tool -change libboost_system.dylib @executable_path/../Frameworks/libboost_system.dylib \
-      $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libboost_filesystem.dylib
-	
-	dylibs=( \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libavcodec.55.dylib ; \
-	done
-	
-	dylibs=( \
-	  $(LIB_DIR)/libavfilter.3.dylib \
-	  $(LIB_DIR)/libavformat.55.dylib \
-	  $(LIB_DIR)/libavcodec.55.dylib \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libavdevice.55.dylib ; \
-	done
-	
-	dylibs=( \
-	  $(LIB_DIR)/libswresample.0.dylib \
-	  $(LIB_DIR)/libavformat.55.dylib \
-	  $(LIB_DIR)/libavcodec.55.dylib \
-	  $(LIB_DIR)/libpostproc.52.dylib \
-	  $(LIB_DIR)/libswscale.2.dylib \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libavfilter.3.dylib ; \
-	done
-	
-	dylibs=( \
-	  $(LIB_DIR)/libavcodec.55.dylib \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libavformat.55.dylib ; \
-	done
-	
-	dylibs=( \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libavutil.52.dylib ; \
-	done
-	
-	dylibs=( \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libswresample.0.dylib ; \
-	done
-	
-	dylibs=( \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libmp3lame.0.dylib \
-	  $(LIB_DIR)/libz.1.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) \
-        $(MB_DIR)/gui/MateBook.app/Contents/Frameworks/libswscale.2.dylib ; \
-	done
+installgui :
+	LIB_DIR=${LIB_DIR} ./bundle_libs_in_app.sh ${MB_DIR}/gui/Matebook.app
+	cp -R ${MB_DIR}/gui/Matebook.app ${BIN_DIR}
 
 else
-installgui : 
+installgui :
 	cp $(MB_DIR)/gui/MateBook $(BIN_DIR)
 endif
+.PHONY : installgui
 
 $(MB_DIR)/gui/MateBook.app/Contents/MacOS/tracker : $(DEPS) $(MB_DIR)/tracker/source/*.cpp $(MB_DIR)/tracker/source/*.hpp
 	cd $(MB_DIR)/tracker/build.gcc && MB_DIR=${MB_DIR} make
 
 ifeq ($(OS), Darwin)
 installtracker : 
-	# bindir=usr/bin/tracker/2141 # on the cluster
-	# bindir=$(MB_DIR)/gui/MateBook.app/Contents/MacOS/ # on a mac
 	mkdir -p $(MB_DIR)/gui/MateBook.app/Contents/MacOS
 	cp $(MB_DIR)/tracker/build.gcc/tracker $(MB_DIR)/gui/MateBook.app/Contents/MacOS
 	cp $(MB_DIR)/tracker/source/*.sh $(MB_DIR)/gui/MateBook.app/Contents/MacOS
-	
-	dylibs=( \
-	  lib/libopencv_core.2.4.dylib \
-	  lib/libopencv_highgui.2.4.dylib \
-	  lib/libopencv_imgproc.2.4.dylib \
-	  libboost_system.dylib \
-	  libboost_filesystem.dylib \
-	  $(LIB_DIR)/libavdevice.55.dylib \
-	  $(LIB_DIR)/libavfilter.3.dylib \
-	  $(LIB_DIR)/libavformat.55.dylib \
-	  $(LIB_DIR)/libavutil.52.dylib \
-	  $(LIB_DIR)/libavcodec.55.dylib \
-	  $(LIB_DIR)/libswresample.0.dylib \
-	  $(LIB_DIR)/libswscale.2.dylib) && \
-	for x in $${dylibs[*]}; do \
-	  install_name_tool -change $$x @executable_path/../Frameworks/$$(basename $$x) $(MB_DIR)/gui/MateBook.app/Contents/MacOS/tracker ; \
-	done
+	LIB_DIR=${LIB_DIR} ./bundle_libs_in_app.sh gui/Matebook.app
 
 else
 installtracker : 
