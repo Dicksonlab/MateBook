@@ -1,6 +1,6 @@
-MB_DIR=/Users/arthurb/src/MateBook
+#MB_DIR=/Users/arthurb/src/MateBook
 #MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
-#MB_DIR=/home/arthurb/src/MateBook
+MB_DIR=/home/arthurb/src/MateBook
 
 MB_VER=2141
 

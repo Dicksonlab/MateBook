@@ -3,6 +3,7 @@
 #include "SystemPage.hpp"
 #include "global.hpp"
 #include "JobQueue.hpp"
+#include "Version.hpp"
 #include "../../common/source/Settings.hpp"
 #include "../../common/source/Singleton.hpp"
 #include "../../common/source/system.hpp"
@@ -61,8 +62,10 @@ SystemPage::SystemPage(Settings& trackerSettings, QWidget* parent) : ConfigPage(
 		#else
 			trackerExecutable->addItem(QFileInfo(global::executableDir + "/tracker.exe").canonicalFilePath());
 		#endif
-	#else
+	#elif defined(MACOS)
 		trackerExecutable->addItem(QFileInfo(global::executableDir + "/tracker").canonicalFilePath());
+	#elif defined(LINUX)
+		trackerExecutable->addItem(QFileInfo(global::executableDir + "/tracker/" + QString::number(Version::current) + "/tracker").canonicalFilePath());
 	#endif
 	pathLayout->addRow(QString("Tracker: "), trackerExecutable);
 	pathLayout->itemAt(pathLayout->count() - 2)->widget()->setToolTip("Path to the tracker executable.");
