@@ -1,6 +1,6 @@
-#MB_DIR=/Users/arthurb/src/MateBook
+MB_DIR=/Users/arthurb/src/MateBook
 #MB_DIR=/groups/dickson/dicksonlab/MateBook/MateBook
-MB_DIR=/home/arthurb/src/MateBook
+#MB_DIR=/home/arthurb/src/MateBook
 
 MB_VER=2141
 
@@ -162,8 +162,8 @@ $(MB_DIR)/gui/MateBook.app/Contents/MacOS/MateBook : $(DEPS) $(MB_DIR)/gui/sourc
 	
 ifeq ($(OS), Darwin)
 installgui :
-	LIB_DIR=${LIB_DIR} ./bundle_libs_in_app.sh ${MB_DIR}/gui/Matebook.app
-	cp -R ${MB_DIR}/gui/Matebook.app ${BIN_DIR}
+	rsync -r ${MB_DIR}/gui/MateBook.app ${BIN_DIR}
+	LIB_DIR=${LIB_DIR} ./bundle_libs_in_app.sh ${BIN_DIR}/MateBook.app
 
 else
 installgui :
@@ -176,10 +176,10 @@ $(MB_DIR)/gui/MateBook.app/Contents/MacOS/tracker : $(DEPS) $(MB_DIR)/tracker/so
 
 ifeq ($(OS), Darwin)
 installtracker : 
-	mkdir -p $(MB_DIR)/gui/MateBook.app/Contents/MacOS
-	cp $(MB_DIR)/tracker/build.gcc/tracker $(MB_DIR)/gui/MateBook.app/Contents/MacOS
-	cp $(MB_DIR)/tracker/source/*.sh $(MB_DIR)/gui/MateBook.app/Contents/MacOS
-	LIB_DIR=${LIB_DIR} ./bundle_libs_in_app.sh gui/Matebook.app
+	mkdir -p $(BIN_DIR)/MateBook.app/Contents/MacOS
+	cp $(MB_DIR)/tracker/build.gcc/tracker $(BIN_DIR)/MateBook.app/Contents/MacOS
+	cp $(MB_DIR)/tracker/source/*.sh $(BIN_DIR)/MateBook.app/Contents/MacOS
+	LIB_DIR=${LIB_DIR} ./bundle_libs_in_app.sh $(BIN_DIR)/MateBook.app
 
 else
 installtracker : 
