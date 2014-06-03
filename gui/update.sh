@@ -66,7 +66,7 @@ RESOURCES += qt/matebook.qrc
 END_OF_TAIL
 
 if [ "$1" == "Darwin" ] ; then
-  QMAKESPEC=${QTDIR}/mkspecs/macx-g++ ${QTDIR}/bin/qmake
+  QMAKESPEC=${QTDIR}/mkspecs/macx-g++ /usr/local/bin/qmake
 else
   QMAKESPEC=${QTDIR}/mkspecs/linux-g++ ${QTDIR}/bin/qmake
 fi
