@@ -23,7 +23,6 @@ then clone the latest version of MateBook from the git repository
 
 to compile MateBook
 
-  edit Makefile to set MB_DIR to your local MateBook directory
   cd MateBook && make && make install
 
 to subsequently upgrade to the latest version 
