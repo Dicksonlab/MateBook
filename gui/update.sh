@@ -2,10 +2,10 @@
 
 if [ "$1" == "Darwin" ] ; then
   OS=MACOS
-  QTDIR=/usr/local/Qt4.8
+  MKSPEC=macx-g++
 else
   OS=LINUX 
-  QTDIR=/usr/lib64/qt4
+  MKSPEC=linux-g++
 fi
 
 cat<<END_OF_HEAD>MateBook.pro
@@ -17,15 +17,8 @@ CONFIG += debug console
 LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale -lGLU
 INCLUDEPATH += ${MB_DIR}/usr/include
 LIBPATH += ${MB_DIR}/usr/lib
+QMAKE_RPATHDIR += ${MB_DIR}/usr/lib64
 END_OF_HEAD
-
-if [ "$1" == "Linux" ] ; then
-cat<<END_OF_HEAD>>MateBook.pro
-INCLUDEPATH += /usr/include/QtCore
-INCLUDEPATH += /usr/include/QtGui
-INCLUDEPATH += /usr/include/QtOpenGL
-END_OF_HEAD
-fi
 
 echo "HEADERS += \\">>MateBook.pro
 find source -name "*.h" | sed -e 's/.*/& \\/'>>MateBook.pro
@@ -65,8 +58,4 @@ cat<<END_OF_TAIL>>MateBook.pro
 RESOURCES += qt/matebook.qrc
 END_OF_TAIL
 
-if [ "$1" == "Darwin" ] ; then
-  QMAKESPEC=${QTDIR}/mkspecs/macx-g++ /usr/local/bin/qmake
-else
-  QMAKESPEC=${QTDIR}/mkspecs/linux-g++ ${QTDIR}/bin/qmake
-fi
+QMAKESPEC=${QTDIR}/mkspecs/${MKSPEC} ${MB_DIR}/usr/bin/qmake

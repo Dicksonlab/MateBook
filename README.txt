@@ -2,40 +2,24 @@ installation
 ============
 
 for mac and linux use the command-line make utility to install the
-dependencies and build MateBook itself.  for windows, good luck, you're on
-your own.
+dependencies and build MateBook itself.  for windows you'll need
+to install by hand.
 
-gui
----
 
-first use a package manager to install Qt 4.8.  on a mac:
+local workstation
+-----------------
 
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-  brew doctor && brew install qt
+to build the gui and local tracker:
 
-on fedora linux:
+  $ cd MateBook && make && make install
 
-  yum install qt-devel
 
-then clone the latest version of MateBook from the git repository
+compute cluster
+---------------
 
-  git clone /groups/dickson/dicksonlab/MateBook/MateBook.git
+first login to a compute node and then:
 
-to compile MateBook
-
-  cd MateBook && make && make install
-
-to subsequently upgrade to the latest version 
-
-  cd MateBook && git pull && make && make install
-
-tracker
--------
-
-repeat the above clone and Makefile edits on a compute node of the cluster
-(skipping the Qt installation) and then
-
-  cd MateBook && make tracker && make installtracker
+  $ cd MateBook && make tracker && make installtracker
 
 
 usage
