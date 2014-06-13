@@ -1,21 +1,27 @@
 installation
 ============
 
-for mac and linux use the command-line make utility to install the
-dependencies and build MateBook itself.  for windows you'll need
-to install by hand.
+mac os workstation
+------------------
 
+first use the homebrew package manager to install Qt 4.8:
 
-local workstation
------------------
+  $ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  $ brew doctor && brew install qt
 
-to build the gui and local tracker:
+then
 
   $ cd MateBook && make && make install
 
 
-compute cluster
----------------
+linux workstation
+-----------------
+
+  $ cd MateBook && make && make install  # Qt is installed automatically
+
+
+cluster
+-------
 
 first login to a compute node and then:
 
@@ -31,7 +37,7 @@ executable is on the labshare at dicksonlab/MateBook/MateBook_mac.
 to batch jobs to cluster:
 
   the files must be stored on the labshare
-    (i.e. start with /Volumes on a mac, and /groups on linux)
+    (i.e. start with /Volumes on a mac, and /tier2 on linux)
 
   the project must be saved to the labshare
 
