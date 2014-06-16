@@ -78,7 +78,7 @@ ifeq ($(OS), Linux)
   $(LIB_DIR)/libQtGui.$(LIB_EXT) \
   $(LIB_DIR)/libQtOpenGL.$(LIB_EXT)
 
-#  PHONON_LIBS = $(LIB_DIR)64/libphonon.$(LIB_EXT)
+  PHONON_LIBS = $(LIB_DIR)64/libphonon.$(LIB_EXT)
 endif
 
 DEPS = $(CMAKE_BIN) $(FFMPEG_LIBS) $(BOOST_LIBS) $(LAME_LIBS) $(OPENCV_LIBS) $(YASM_LIBS) $(ZLIB)
@@ -161,35 +161,38 @@ ${MB_DIR}/deps/qt-${QT_VER}.tar.gz :
 	cd ${MB_DIR}/deps && tar xvzf qt-${QT_VER}.tar.gz
 	cd ${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} && ./configure --prefix=${MB_DIR}/usr/ -opensource <<<yes
 	cd ${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} && make -j ${NJOBS} && make install
+
+$(PHONON_LIBS) : ${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz
+${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz : $(CMAKE_BIN) ${QT_LIBS}
+	curl -L http://download.kde.org/stable/phonon/4.7.1/phonon-${PHONON_VER}.tar.xz > ${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz
+	cd ${MB_DIR}/deps && tar xvf phonon-${PHONON_VER}.tar.xz
+	mkdir ${MB_DIR}/deps/phonon-${PHONON_VER}/release
+	cd ${MB_DIR}/deps/phonon-${PHONON_VER}/release && \
+	PKG_CONFIG_PATH=${MB_DIR}/usr/lib/pkgconfig \
+	CMAKE_INCLUDE_PATH=${MB_DIR}/usr/include \
+	CMAKE_LIBRARY_PATH=${MB_DIR}/usr/lib \
+	${MB_DIR}/usr/bin/cmake \
+	-D CMAKE_SHARED_LINKER_FLAGS:STRING=-Wl,-rpath,${MB_DIR}/usr/lib/ \
+	-D CMAKE_INSTALL_PREFIX=${MB_DIR}/usr/ \
+	-D PHONON_QT_IMPORTS_INSTALL_DIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} \
+	-D PHONON_QT_MKSPECS_INSTALL_DIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} \
+	-D PHONON_QT_PLUGIN_INSTALL_DIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} \
+	-D QT_QMAKE_EXECUTABLE=${BIN_DIR}/qmake ..
+	cd ${MB_DIR}/deps/phonon-${PHONON_VER}/release && make -j ${NJOBS} && make install
 endif
 
-#$(PHONON_LIBS) : ${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz
-#${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz : $(CMAKE_BIN) ${QT_LIBS}
-#	curl -L http://download.kde.org/stable/phonon/4.7.1/phonon-${PHONON_VER}.tar.xz > ${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz
-#	cd ${MB_DIR}/deps && tar xvf phonon-${PHONON_VER}.tar.xz
-#	mkdir ${MB_DIR}/deps/phonon-${PHONON_VER}/release
-#	cd ${MB_DIR}/deps/phonon-${PHONON_VER}/release && \
-#	PKG_CONFIG_PATH=${MB_DIR}/usr/lib/pkgconfig \
-#	CMAKE_INCLUDE_PATH=${MB_DIR}/usr/include \
-#	CMAKE_LIBRARY_PATH=${MB_DIR}/usr/lib \
-#	${MB_DIR}/usr/bin/cmake \
-#	-D CMAKE_SHARED_LINKER_FLAGS:STRING=-Wl,-rpath,${MB_DIR}/usr/lib/ \
-#	-D CMAKE_INSTALL_PREFIX=${MB_DIR}/usr/ \
-#	-D PHONON_QT_IMPORTS_INSTALL_DIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} \
-#	-D PHONON_QT_MKSPECS_INSTALL_DIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} \
-#  -D PHONON_QT_PLUGIN_INSTALL_DIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} \
-#	-D QT_QMAKE_EXECUTABLE=${BIN_DIR}/qmake ..
-#	cd ${MB_DIR}/deps/phonon-${PHONON_VER}/release && make -j ${NJOBS} && make install
-
-$(GUI) : $(DEPS) $(QT_LIBS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
+ifeq ($(OS), Darwin)
+$(GUI) : $(DEPS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
 	cd gui && MB_DIR=${MB_DIR} QT_VER=${QT_VER} ./update.sh $(OS) && make -j ${NJOBS}
 	
-ifeq ($(OS), Darwin)
 installgui :
 	rsync -r ${MB_DIR}/gui/MateBook.app ${BIN_DIR}
 	LIB_DIR=${LIB_DIR} ./bundle_libs_in_app.sh ${BIN_DIR}/MateBook.app
 
 else
+$(GUI) : $(DEPS) $(QT_LIBS) $(PHONON_LIBS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
+	cd gui && MB_DIR=${MB_DIR} QT_VER=${QT_VER} ./update.sh $(OS) && make -j ${NJOBS}
+	
 installgui :
 	cp $(MB_DIR)/gui/MateBook $(BIN_DIR)
 endif
@@ -262,8 +265,12 @@ cleanqt :
 	rm -rf $(LIB_DIR)/imports
 	rm -rf $(LIB_DIR)/demos
 	rm -rf $(BIN_DIR)/q*
-#cleanphonon :
-#	rm -rf $(MB_DIR)/deps/phonon-* $(LIB_DIR)/libphonon* $(INCLUDE_DIR)/KDE $(INCLUDE_DIR)/phonon $(SHARE_DIR)/phonon
+cleanphonon :
+	rm -rf $(MB_DIR)/deps/phonon-*
+	rm -rf $(LIB_DIR)/libphonon*
+	rm -rf $(INCLUDE_DIR)/KDE
+	rm -rf $(INCLUDE_DIR)/phonon
+	rm -rf $(SHARE_DIR)/phonon
 cleandeps : cleancmake cleanffmpeg cleanboost cleanlame cleanopencv cleanyasm cleanzlib cleanqt
 else
 cleandeps : cleancmake cleanffmpeg cleanboost cleanlame cleanopencv cleanyasm cleanzlib

@@ -24,8 +24,10 @@ LIBPATH += ${MB_DIR}/usr/lib
 END_OF_HEAD
 
 if [ "$1" == "Linux" ] ; then
-  LIBS += -lGLU
-  QMAKE_RPATHDIR += ${MB_DIR}/usr/lib64
+cat<<END_OF_HEAD>>MateBook.pro
+LIBS += -lGLU
+QMAKE_RPATHDIR += ${MB_DIR}/usr/lib64
+END_OF_HEAD
 fi
 
 echo "HEADERS += \\">>MateBook.pro
