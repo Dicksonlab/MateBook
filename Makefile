@@ -182,7 +182,7 @@ endif
 #	cd ${MB_DIR}/deps/phonon-${PHONON_VER}/release && make -j ${NJOBS} && make install
 
 $(GUI) : $(DEPS) $(QT_LIBS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
-	cd gui && MB_DIR=${MB_DIR} ./update.sh $(OS) && make -j ${NJOBS}
+	cd gui && MB_DIR=${MB_DIR} QT_VER=${QT_VER} ./update.sh $(OS) && make -j ${NJOBS}
 	
 ifeq ($(OS), Darwin)
 installgui :

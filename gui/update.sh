@@ -4,7 +4,7 @@ if [ "$1" == "Darwin" ] ; then
   OS=MACOS
   MKSPEC=macx-g++
   QMAKE=/usr/local/bin/qmake
-  QTDIR=/usr/local/Cellar/qt/4.8.5
+  QTDIR=/usr/local/Cellar/qt/${QT_VER}
 else
   OS=LINUX 
   MKSPEC=linux-g++

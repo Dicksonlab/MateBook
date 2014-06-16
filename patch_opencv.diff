@@ -1,6 +1,6 @@
 diff foo modules/highgui/CMakeLists.txt
 178a179,182
 > if(APPLE)
->   list(APPEND HIGHGUI_LIBRARIES ${BZIP2_LIBRARIES} ${MB_DIR}/usr/lib/libmp3lame.dylib)
+>   list(APPEND HIGHGUI_LIBRARIES ${BZIP2_LIBRARIES} ${MB_DIR}/usr/lib/libmp3lame.dylib /usr/lib/libiconv.dylib)
 > endif(APPLE)
 > 
