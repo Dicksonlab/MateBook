@@ -963,7 +963,7 @@ Job* FileItem::createJob(const QString& settingsFileName, bool preprocess, bool 
 			getMateBook()->getConfigDialog()->getSshPrivateKey(),
 			getMateBook()->getConfigDialog()->getSshEnvironment(),
 			getMateBook()->getConfigDialog()->getPollingInterval(),
-			QString("/groups/dickson/dicksonlab/MateBook/MateBook/usr/bin/tracker/") + QString::number(Version::current) + "/qsub_track.sh",
+			QString("/tier2/dickson/dicksonlab/MateBook/MateBook/usr/bin/tracker/") + QString::number(Version::current) + "/qsub_track.sh",
 			arguments,
 			absoluteDataDirectory()
 		);
@@ -987,7 +987,7 @@ bool FileItem::canUseCluster() const
 			(absoluteDataDirectory().absolutePath().startsWith("\\\\") || absoluteDataDirectory().absolutePath().startsWith("//"));
 	#elif defined(LINUX)
         // return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
-        return getFileName().startsWith("/groups/");
+        return getFileName().startsWith("/tier2/");
 	#else
         // return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
         return getFileName().startsWith("/Volumes/");
