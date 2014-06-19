@@ -3,6 +3,7 @@ MB_DIR=$(abspath .)
 MB_VER=2141
 
 OS := $(shell uname)
+SHELL := $(shell which bash)
 
 ifeq ($(OS), Darwin)
 	LIB_EXT=dylib
@@ -91,6 +92,7 @@ install : installgui installtracker
 
 $(CMAKE_BIN) : ${MB_DIR}/deps/cmake-${CMAKE_VER}.tar.gz
 ${MB_DIR}/deps/cmake-${CMAKE_VER}.tar.gz :
+	make cleancmake
 	curl -L http://www.cmake.org/files/v2.8/cmake-${CMAKE_VER}.tar.gz > ${MB_DIR}/deps/cmake-${CMAKE_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf cmake-${CMAKE_VER}.tar.gz
 	cd ${MB_DIR}/deps/cmake-${CMAKE_VER} && ./bootstrap --parallel=${NJOBS} --prefix=${MB_DIR}/usr/
@@ -98,6 +100,7 @@ ${MB_DIR}/deps/cmake-${CMAKE_VER}.tar.gz :
 
 $(FFMPEG_LIBS) : ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER}.tar.gz
 ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER}.tar.gz : $(YASM_LIBS) $(LAME_LIBS)
+	make cleanffmpeg
 	curl -L http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VER}.tar.gz > ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf ffmpeg-${FFMPEG_VER}.tar.gz
 	cd ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER} && PATH=${MB_DIR}/usr/bin:${PATH} ./configure \
@@ -110,6 +113,7 @@ ${MB_DIR}/deps/ffmpeg-${FFMPEG_VER}.tar.gz : $(YASM_LIBS) $(LAME_LIBS)
 
 $(BOOST_LIBS) : ${MB_DIR}/deps/boost_${BOOST_VER}.tar.gz
 ${MB_DIR}/deps/boost_${BOOST_VER}.tar.gz :
+	make cleanboost
 	curl -L http://sourceforge.net/projects/boost/files/boost/1.54.0/boost_${BOOST_VER}.tar.gz/download > ${MB_DIR}/deps/boost_${BOOST_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf boost_${BOOST_VER}.tar.gz
 	cd ${MB_DIR}/deps/boost_${BOOST_VER} && ./bootstrap.sh --prefix=${MB_DIR}/usr/ --with-libraries=filesystem,system
@@ -118,6 +122,7 @@ ${MB_DIR}/deps/boost_${BOOST_VER}.tar.gz :
 
 $(LAME_LIBS) : ${MB_DIR}/deps/lame-${LAME_VER}.tar.gz
 ${MB_DIR}/deps/lame-${LAME_VER}.tar.gz :
+	make cleanlame
 	curl -L http://sourceforge.net/projects/lame/files/lame/3.99/lame-${LAME_VER}.tar.gz/download > ${MB_DIR}/deps/lame-${LAME_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf lame-${LAME_VER}.tar.gz
 	cd ${MB_DIR}/deps/lame-${LAME_VER} && ./configure --prefix=${MB_DIR}/usr/
@@ -125,6 +130,7 @@ ${MB_DIR}/deps/lame-${LAME_VER}.tar.gz :
 
 $(OPENCV_LIBS) : ${MB_DIR}/deps/opencv-${OPENCV_VER}.tar.gz
 ${MB_DIR}/deps/opencv-${OPENCV_VER}.tar.gz : $(CMAKE_BIN) $(ZLIB)
+	make cleanopencv
 	curl -L http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/${OPENCV_VER}/opencv-${OPENCV_VER}.tar.gz > ${MB_DIR}/deps/opencv-${OPENCV_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf opencv-${OPENCV_VER}.tar.gz
 	# edit release/CMakeCache.txt, set VERBOSE=ON/TRUE
@@ -142,6 +148,7 @@ ${MB_DIR}/deps/opencv-${OPENCV_VER}.tar.gz : $(CMAKE_BIN) $(ZLIB)
 
 $(YASM_LIBS) : ${MB_DIR}/deps/yasm-${YASM_VER}.tar.gz
 ${MB_DIR}/deps/yasm-${YASM_VER}.tar.gz :
+	make cleanyasm
 	curl -L http://www.tortall.net/projects/yasm/releases/yasm-${YASM_VER}.tar.gz > ${MB_DIR}/deps/yasm-${YASM_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf yasm-${YASM_VER}.tar.gz
 	cd ${MB_DIR}/deps/yasm-${YASM_VER} && ./configure --prefix=${MB_DIR}/usr/
@@ -149,6 +156,7 @@ ${MB_DIR}/deps/yasm-${YASM_VER}.tar.gz :
 
 $(ZLIB) : ${MB_DIR}/deps/zlib-${ZLIB_VER}.tar.gz
 ${MB_DIR}/deps/zlib-${ZLIB_VER}.tar.gz :
+	make cleanzlib
 	curl -L http://zlib.net/zlib-${ZLIB_VER}.tar.gz > ${MB_DIR}/deps/zlib-${ZLIB_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf zlib-${ZLIB_VER}.tar.gz
 	cd ${MB_DIR}/deps/zlib-${ZLIB_VER} && ./configure --prefix=${MB_DIR}/usr
@@ -156,14 +164,16 @@ ${MB_DIR}/deps/zlib-${ZLIB_VER}.tar.gz :
 
 ifeq ($(OS), Linux)
 $(QT_LIBS) : ${MB_DIR}/deps/qt-${QT_VER}.tar.gz
-${MB_DIR}/deps/qt-${QT_VER}.tar.gz :
+${MB_DIR}/deps/qt-${QT_VER}.tar.gz : $(CMAKE_BIN)
+	make cleanqt
 	curl -L http://download.qt-project.org/official_releases/qt/4.8/${QT_VER}/qt-everywhere-opensource-src-${QT_VER}.tar.gz > ${MB_DIR}/deps/qt-${QT_VER}.tar.gz
 	cd ${MB_DIR}/deps && tar xvzf qt-${QT_VER}.tar.gz
-	cd ${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} && ./configure --prefix=${MB_DIR}/usr/ -opensource <<<yes
+	cd ${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} && ./configure --prefix=${MB_DIR}/usr/ --opensource <<<yes
 	cd ${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER} && make -j ${NJOBS} && make install
 
 $(PHONON_LIBS) : ${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz
 ${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz : $(CMAKE_BIN) ${QT_LIBS}
+	make cleanphonon
 	curl -L http://download.kde.org/stable/phonon/4.7.1/phonon-${PHONON_VER}.tar.xz > ${MB_DIR}/deps/phonon-${PHONON_VER}.tar.xz
 	cd ${MB_DIR}/deps && tar xvf phonon-${PHONON_VER}.tar.xz
 	mkdir ${MB_DIR}/deps/phonon-${PHONON_VER}/release
@@ -195,6 +205,7 @@ $(GUI) : $(DEPS) $(QT_LIBS) $(PHONON_LIBS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/
 	
 installgui :
 	cp $(MB_DIR)/gui/MateBook $(BIN_DIR)
+	printf [Paths]\\nPlugins='.' > $(BIN_DIR)/qt.conf
 endif
 .PHONY : installgui
 

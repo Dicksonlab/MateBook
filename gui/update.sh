@@ -27,6 +27,7 @@ if [ "$1" == "Linux" ] ; then
 cat<<END_OF_HEAD>>MateBook.pro
 LIBS += -lGLU
 QMAKE_RPATHDIR += ${MB_DIR}/usr/lib64
+QMAKE_RPATHDIR += ${MB_DIR}/usr/lib/x86_64-linux-gnu
 END_OF_HEAD
 fi
 

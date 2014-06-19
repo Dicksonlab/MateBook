@@ -773,7 +773,7 @@ Job* ArenaItem::createJob(const QString& settingsFileName, bool preprocess, bool
 			getMateBook()->getConfigDialog()->getSshPrivateKey(),
 			getMateBook()->getConfigDialog()->getSshEnvironment(),
 			getMateBook()->getConfigDialog()->getPollingInterval(),
-			QString("/tier2/dickson/dicksonlab/MateBook/MateBook/usr/bin/tracker/") + QString::number(Version::current) + "/qsub_track.sh",
+			QString("/groups/dickson/dicksonlab/MateBook/MateBook/usr/bin/tracker/") + QString::number(Version::current) + "/qsub_track.sh",
 			arguments,
 			parentItem->absoluteDataDirectory()
 		);
