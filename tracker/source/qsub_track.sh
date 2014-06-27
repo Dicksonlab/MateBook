@@ -26,7 +26,7 @@ if [ -x ${MB_PATH}/usr/bin/tracker/$MB_VERSION/tracker ]; then
   do
     eval $i=$(sed \
         -e "s:^/Volumes:/groups/dickson:" \
-    <<< ${!i})
+    <<< \"${!i}\")
 #    eval $i=$(sed \
 #        -e "s:^/Volumes/dikarchive:/projects/dikarchive:I" \
 #        -e "s:^\\\\\\\\manray\\\\dikarchive:/projects/dikarchive:I" \
