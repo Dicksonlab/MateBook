@@ -17,7 +17,10 @@ then
 linux workstation
 -----------------
 
-  $ cd MateBook && make && make install  # Qt is installed automatically
+  $ cd MateBook
+  $ export LD_LIBRARY_PATH = $(pwd)/usr/bin
+  $ export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64/
+  $ make && make install  # Qt is installed automatically
 
 
 cluster
@@ -43,8 +46,7 @@ to batch jobs to cluster:
 
   a password-less SSH key pair must be established:
 
-    ssh-keygen -t rsa
-      (hit Enter to leave passphrase blank)
+    ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
   the preferences must be configured correctly
