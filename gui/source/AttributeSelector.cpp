@@ -95,7 +95,7 @@ void AttributeSelector::fromString(const std::string& description)
 		return;
 	}
 
-	for (size_t attributeNumber = 0; attributeNumber != attributeComboBox->count(); ++attributeNumber) {
+	for (int attributeNumber = 0; attributeNumber != attributeComboBox->count(); ++attributeNumber) {
 		if (attributeComboBox->itemText(attributeNumber) == attributeName &&
 			attributeComboBox->itemData(attributeNumber).canConvert<QString>() &&
 			attributeComboBox->itemData(attributeNumber).toString() == attributeKind
@@ -110,7 +110,7 @@ void AttributeSelector::fromString(const std::string& description)
 
 void AttributeSelector::selectAttribute(const QString& name, const QString& kind)
 {
-	for (size_t attributeNumber = 0; attributeNumber != attributeComboBox->count(); ++attributeNumber) {
+	for (int attributeNumber = 0; attributeNumber != attributeComboBox->count(); ++attributeNumber) {
 		if (attributeComboBox->itemText(attributeNumber) == name &&
 			attributeComboBox->itemData(attributeNumber).canConvert<QString>() &&
 			attributeComboBox->itemData(attributeNumber).toString() == kind
@@ -133,24 +133,36 @@ void AttributeSelector::reset()	//TODO: add only MyBool attributes to the combo 
 	attributeComboBox->clear();
 	attributeComboBox->addItem("<attribute>", QVariant());
 	attributeComboBox->insertSeparator(attributeComboBox->count());
+	FrameAttributes frameAttributes = FrameAttributes();
 	{
-		std::vector<std::string> attributeNames = FrameAttributes().getNames<MyBool>();
+		std::vector<std::string> attributeNames = frameAttributes.getNames<MyBool>();
 		for (std::vector<std::string>::const_iterator iter = attributeNames.begin(); iter != attributeNames.end(); ++iter) {
-			attributeComboBox->addItem(QString::fromStdString(*iter), "frame");
+      std::string shortname = frameAttributes.get(*iter).getShortName();
+      if(shortname.empty())  continue;
+			attributeComboBox->addItem(QString::fromStdString(shortname),
+            QString::fromStdString("frame,"+*iter));
 		}
 	}
 	attributeComboBox->insertSeparator(attributeComboBox->count());
+	FlyAttributes flyAttributes = FlyAttributes();
 	{
-		std::vector<std::string> attributeNames = FlyAttributes().getNames<MyBool>();
+		std::vector<std::string> attributeNames = flyAttributes.getNames<MyBool>();
 		for (std::vector<std::string>::const_iterator iter = attributeNames.begin(); iter != attributeNames.end(); ++iter) {
-			attributeComboBox->addItem(QString::fromStdString(*iter), "fly");
+      std::string shortname = flyAttributes.get(*iter).getShortName();
+      if(shortname.empty())  continue;
+			attributeComboBox->addItem(QString::fromStdString(shortname),
+            QString::fromStdString("fly,"+*iter));
 		}
 	}
 	attributeComboBox->insertSeparator(attributeComboBox->count());
+	PairAttributes pairAttributes = PairAttributes();
 	{
 		std::vector<std::string> attributeNames = PairAttributes().getNames<MyBool>();
 		for (std::vector<std::string>::const_iterator iter = attributeNames.begin(); iter != attributeNames.end(); ++iter) {
-			attributeComboBox->addItem(QString::fromStdString(*iter), "pair");
+      std::string shortname = pairAttributes.get(*iter).getShortName();
+      if(shortname.empty())  continue;
+			attributeComboBox->addItem(QString::fromStdString(shortname),
+            QString::fromStdString("pair,"+*iter));
 		}
 	}
 }

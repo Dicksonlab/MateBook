@@ -5,56 +5,56 @@
 #include "../../common/source/Vec.hpp"
 #include "../../common/source/MyBool.hpp"
 #include "../../common/source/macro.h"
-#define NEW_FRAME_ATTRIBUTE(group, type, name, description, unit) attributeMap[STRINGIFY(name)] = new Attribute<type>(STRINGIFY(name), description, unit); group.push_back(STRINGIFY(name));
+#define NEW_FRAME_ATTRIBUTE(group, type, shortname, name, description, unit) attributeMap[STRINGIFY(name)] = new Attribute<type>(shortname, STRINGIFY(name), description, unit); group.push_back(STRINGIFY(name));
 #if defined(MATEBOOK_GUI)
-	#define NEW_TRACKING_ATTRIBUTE(group, type, name, description, unit) attributeMap[STRINGIFY(name)] = new Attribute<type>(STRINGIFY(name), description, unit); group.push_back(STRINGIFY(name));
+	#define NEW_TRACKING_ATTRIBUTE(group, type, shortname, name, description, unit) attributeMap[STRINGIFY(name)] = new Attribute<type>(shortname, STRINGIFY(name), description, unit); group.push_back(STRINGIFY(name));
 #else
-	#define NEW_TRACKING_ATTRIBUTE(group, type, name, description, unit) attributeMap[STRINGIFY(name)] = new TrackingAttributeFrame<type>(STRINGIFY(name), description, unit, &TrackedFrame::get_##name); group.push_back(STRINGIFY(name));
+	#define NEW_TRACKING_ATTRIBUTE(group, type, shortname, name, description, unit) attributeMap[STRINGIFY(name)] = new TrackingAttributeFrame<type>(shortname, STRINGIFY(name), description, unit, &TrackedFrame::get_##name); group.push_back(STRINGIFY(name));
 #endif
 
 FrameAttributes::FrameAttributes() : AttributeCollection()
 {
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, bodyContourOffset, "Offset into the contour file to access the body contours for this (occluded) frame.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, wingContourOffset, "Offset into the contour file to access the wing contours for this (occluded) frame.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, bodyThreshold, "The threshold picked for body segmentation.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, wingThreshold, "The threshold picked for wing segmentation.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, MyBool, isOcclusionTouched, "Whether this frame is occluded due to flies touching.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, MyBool, isMissegmented, "Whether this frame has been missegmented.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, videoTime, "Time passed since the beginning of the video.", "s");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, trackedTime, "Time passed since the beginning of the tracked sequence.", "s");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, videoFrame, "Index of the video frame, relative to the beginning of the video.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, trackedFrame, "Index of the video frame, relative to the beginning of the tracked sequence.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, videoFrameRelative, "0.0 is the beginning of the video, while 1.0 is the end.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, trackedFrameRelative, "0.0 is the beginning of the tracked sequence, while 1.0 is the end.", "");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, Vf2, averageBodyCentroid, "Average of all body centroids.", "px");
-	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, tBocScore, "Contour-based score in [-1,1] for occlusion resolution.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, "bodyContourOffset", bodyContourOffset, "Offset into the contour file to access the body contours for this (occluded) frame.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, "wingContourOffset", wingContourOffset, "Offset into the contour file to access the wing contours for this (occluded) frame.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, "bodyThreshold", bodyThreshold, "The threshold picked for body segmentation.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, "wingThreshold", wingThreshold, "The threshold picked for wing segmentation.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, MyBool, "", isOcclusionTouched, "Whether this frame is occluded due to flies touching.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, MyBool, "mseg", isMissegmented, "Whether this frame has been missegmented.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, "t", videoTime, "Time passed since the beginning of the video.", "s");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, "", trackedTime, "Time passed since the beginning of the tracked sequence.", "s");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, "f", videoFrame, "Index of the video frame, relative to the beginning of the video.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, uint32_t, "", trackedFrame, "Index of the video frame, relative to the beginning of the tracked sequence.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, "", videoFrameRelative, "0.0 is the beginning of the video, while 1.0 is the end.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, "", trackedFrameRelative, "0.0 is the beginning of the tracked sequence, while 1.0 is the end.", "");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, Vf2, "", averageBodyCentroid, "Average of all body centroids.", "px");
+	NEW_TRACKING_ATTRIBUTE(trackingAttributes, float, "", tBocScore, "Contour-based score in [-1,1] for occlusion resolution.", "");
 
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, isOcclusion, "Whether this frame is occluded.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, occlusionInspected, "Whether this frame is part of an occlusion that has been been switched by the user at some point.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, isMissegmentedUnmerged, "Missegmentations that have not been merged into occlusions.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, interpolated, "Body attributes are interpolated.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, interpolatedAbsolutely, "Body attributes are interpolated absolutely.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, interpolatedRelatively, "Body attributes are interpolated relative to the averageBodyCentroid.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, isMissegmentedSS, "Both flies are too small.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, isMissegmentedS, "One fly is too small, the other one okay.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, isMissegmentedSL, "One fly is too small, the other one too large.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, isMissegmentedL, "One fly is too large, the other one okay.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, isMissegmentedLL, "Both flies are too large.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, sSizeProb, "Size-based probability for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, sSize, "Size-based logodd for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, sCombined, "Weighted and combined s values for non-occluded sequences.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tBocProb, "Contour-based probability for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tBoc, "Contour-based logodd for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tPosScore, "Position-based score in [-1,1] for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tPosProb, "Position-based probability for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tPos, "Position-based logodd for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tMovScore, "Motion-based score in [-1,1] for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tMovProb, "Motion-based probability for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tMov, "Motion-based logodd for occlusion resolution.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, tCombined, "Weighted and combined t values for occluded sequences.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, uint32_t, idPermutation, "In a sorted list of permutations, this is the index of the permutation that was applied to the flies to assign the correct identities.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, courtship, "Whether any flies are courting in this frame.", "");
-	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, wingExtCallableDuringOcclusion, "Whether wingExt can be called during occlusions.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "occ", isOcclusion, "Whether this frame is occluded.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "occlusionInspected", occlusionInspected, "Whether this frame is part of an occlusion that has been been switched by the user at some point.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", isMissegmentedUnmerged, "Missegmentations that have not been merged into occlusions.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", interpolated, "Body attributes are interpolated.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", interpolatedAbsolutely, "Body attributes are interpolated absolutely.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", interpolatedRelatively, "Body attributes are interpolated relative to the averageBodyCentroid.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", isMissegmentedSS, "Both flies are too small.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", isMissegmentedS, "One fly is too small, the other one okay.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", isMissegmentedSL, "One fly is too small, the other one too large.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", isMissegmentedL, "One fly is too large, the other one okay.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", isMissegmentedLL, "Both flies are too large.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", sSizeProb, "Size-based probability for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", sSize, "Size-based logodd for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "sCombined", sCombined, "Weighted and combined s values for non-occluded sequences.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tBocProb, "Contour-based probability for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tBoc, "Contour-based logodd for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tPosScore, "Position-based score in [-1,1] for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tPosProb, "Position-based probability for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tPos, "Position-based logodd for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tMovScore, "Motion-based score in [-1,1] for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tMovProb, "Motion-based probability for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "", tMov, "Motion-based logodd for occlusion resolution.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, float, "tCombined", tCombined, "Weighted and combined t values for occluded sequences.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, uint32_t, "", idPermutation, "In a sorted list of permutations, this is the index of the permutation that was applied to the flies to assign the correct identities.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", courtship, "Whether any flies are courting in this frame.", "");
+	NEW_FRAME_ATTRIBUTE(derivedAttributes, MyBool, "", wingExtCallableDuringOcclusion, "Whether wingExt can be called during occlusions.", "");
 
 	//TODO: instead of adding all this knowledge to FrameAttributes, how about just deriving ScoreAttribute and ProbAttribute from Attribute and make a virtual swap?
 	occlusionScoreAttributes.push_back("tBocScore");

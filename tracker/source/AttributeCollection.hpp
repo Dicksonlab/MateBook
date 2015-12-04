@@ -188,6 +188,7 @@ public:
 	void write(std::ostream& out, const std::string& header = "", const char delimiter = '\t') const
 	{
 		for (AttributeMap::const_iterator iter = attributeMap.begin(); iter != attributeMap.end(); ++iter) {
+			if (iter->second->getShortName().empty())  continue;
 			out << header << delimiter;
 			iter->second->write(out, delimiter);
 			out << '\n';
@@ -197,6 +198,7 @@ public:
 	void writeBinaries(const std::string& outDirPath) const
 	{
 		for (AttributeMap::const_iterator iter = attributeMap.begin(); iter != attributeMap.end(); ++iter) {
+			if (iter->second->getShortName().empty())  continue;
 			std::ofstream binaryAttributeFile((outDirPath + "/" + iter->first).c_str(), std::ios::out | std::ios::binary);
 			iter->second->writeBinaries(binaryAttributeFile);
 		}
@@ -205,6 +207,7 @@ public:
 	void writeMean(std::ostream& out) const
 	{
 		for (AttributeMap::const_iterator iter = attributeMap.begin(); iter != attributeMap.end(); ++iter) {
+			if (iter->second->getShortName().empty())  continue;
 			iter->second->writeMean(out);
 			out << '\n';
 		}

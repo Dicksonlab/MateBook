@@ -40,6 +40,7 @@ class AbstractAttribute {
 public:
 	virtual ~AbstractAttribute() {}
 	virtual AbstractAttribute* clone() const = 0;
+	virtual std::string getShortName() const = 0;
 	virtual std::string getName() const = 0;
 	virtual std::string getType() const = 0;
 	virtual std::string getDescription() const = 0;
@@ -68,7 +69,8 @@ public:
 	{
 	}
 
-	Attribute(const std::string& name, const std::string& description, const std::string& unit) : AbstractAttribute(),
+	Attribute(const std::string& shortname, const std::string& name, const std::string& description, const std::string& unit) : AbstractAttribute(),
+		shortname(shortname),
 		name(name),
 		description(description),
 		unit(unit)
@@ -77,9 +79,14 @@ public:
 
 	AbstractAttribute* clone() const
 	{
-		Attribute<T>* cloned = new Attribute<T>(name, description, unit);
+		Attribute<T>* cloned = new Attribute<T>(shortname, name, description, unit);
 		cloned->data = data;
 		return cloned;
+	}
+
+	std::string getShortName() const
+	{
+		return shortname;
 	}
 
 	std::string getName() const
@@ -200,7 +207,6 @@ public:
 
 	void write(std::ostream& out, const char delimiter = '\t') const
 	{
-		out << getName() << delimiter << getType() << delimiter << data.size();
 		for (typename std::vector<T>::const_iterator iter = data.begin(); iter != data.end(); ++iter) {
 			out << delimiter << *iter;
 		}
@@ -274,6 +280,7 @@ public:
 	}
     
 protected:
+	std::string shortname;
 	std::string name;
 	std::string description;
 	std::string unit;
@@ -284,14 +291,14 @@ protected:
 template<class T>
 class TrackingAttributeFly : public Attribute<T> {
 public:
-	TrackingAttributeFly(const std::string& name, const std::string& description, const std::string& unit, T (Fly::*getter)() const) : Attribute<T>(name, description, unit),
+	TrackingAttributeFly(const std::string& shortname, const std::string& name, const std::string& description, const std::string& unit, T (Fly::*getter)() const) : Attribute<T>(shortname, name, description, unit),
 		getter(getter)
 	{
 	}
 
 	AbstractAttribute* clone() const
 	{
-		TrackingAttributeFly<T>* cloned = new TrackingAttributeFly<T>(Attribute<T>::name, Attribute<T>::description, Attribute<T>::unit, getter);
+		TrackingAttributeFly<T>* cloned = new TrackingAttributeFly<T>(Attribute<T>::shortname, Attribute<T>::name, Attribute<T>::description, Attribute<T>::unit, getter);
 		cloned->data = Attribute<T>::data;
 		return cloned;
 	}
@@ -308,14 +315,14 @@ private:
 template<class T>
 class TrackingAttributeFrame : public Attribute<T> {
 public:
-	TrackingAttributeFrame(const std::string& name, const std::string& description, const std::string& unit, T (TrackedFrame::*getter)() const) : Attribute<T>(name, description, unit),
+	TrackingAttributeFrame(const std::string& shortname, const std::string& name, const std::string& description, const std::string& unit, T (TrackedFrame::*getter)() const) : Attribute<T>(shortname, name, description, unit),
 		getter(getter)
 	{
 	}
 
 	AbstractAttribute* clone() const
 	{
-		TrackingAttributeFrame<T>* cloned = new TrackingAttributeFrame<T>(Attribute<T>::name, Attribute<T>::description, Attribute<T>::unit, getter);
+		TrackingAttributeFrame<T>* cloned = new TrackingAttributeFrame<T>(Attribute<T>::shortname, Attribute<T>::name, Attribute<T>::description, Attribute<T>::unit, getter);
 		cloned->data = Attribute<T>::data;
 		return cloned;
 	}
