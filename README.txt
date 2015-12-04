@@ -18,7 +18,7 @@ linux workstation
 -----------------
 
   $ cd MateBook
-  $ export LD_LIBRARY_PATH = $(pwd)/usr/bin
+  $ export LD_LIBRARY_PATH=$(pwd)/usr/lib
   $ export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64/
   $ make && make install  # Qt is installed automatically
 
@@ -39,17 +39,17 @@ executable is on the labshare at dicksonlab/MateBook/MateBook_mac.
 
 to batch jobs to cluster:
 
-  the files must be stored on the labshare
+  1. the files must be stored on the labshare
     (i.e. start with /Volumes on a mac, and /tier2 on linux)
 
-  the project must be saved to the labshare
+  2. the project must be saved to the labshare
 
-  a password-less SSH key pair must be established:
+  3. a password-less SSH key pair must be established:
 
     ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-  the preferences must be configured correctly
+  4. the preferences must be configured correctly
 
     go to matebook menu -> prefs -> system -> cluster processing and set
       transfer host to "login1"
