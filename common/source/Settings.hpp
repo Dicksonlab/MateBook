@@ -111,7 +111,7 @@ public:
 		std::string settingName = "executable";
 		std::string settingValue;
 		bool expectValue = true;
-		for (size_t argNum = 0; argNum != argc; ++argNum) {
+		for (int  argNum = 0; argNum != argc; ++argNum) {
 			std::string arg = argv[argNum];
 			if (expectValue) {
 				if (arg.find(settingNamePrefix) == 0) {
