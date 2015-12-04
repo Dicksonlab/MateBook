@@ -20,7 +20,7 @@ LAME_VER=3.99.5
 YASM_VER=1.2.0
 FFMPEG_VER=2.1
 CMAKE_VER=2.8.12.1
-OPENCV_VER=2.4.7# 2.4.7 has a bug with MD5 on linux
+OPENCV_VER=2.4.11# 2.4.7 has a bug with MD5 on linux
 BOOST_VER=1_54_0
 ZLIB_VER=1.2.8
 QT_VER=4.8.6
@@ -128,11 +128,11 @@ ${MB_DIR}/deps/lame-${LAME_VER}.tar.gz :
 	cd ${MB_DIR}/deps/lame-${LAME_VER} && ./configure --prefix=${MB_DIR}/usr/
 	cd ${MB_DIR}/deps/lame-${LAME_VER} && make -j ${NJOBS} && make install
 
-$(OPENCV_LIBS) : ${MB_DIR}/deps/opencv-${OPENCV_VER}.tar.gz
-${MB_DIR}/deps/opencv-${OPENCV_VER}.tar.gz : $(CMAKE_BIN) $(ZLIB)
+$(OPENCV_LIBS) : ${MB_DIR}/deps/opencv-${OPENCV_VER}.zip
+${MB_DIR}/deps/opencv-${OPENCV_VER}.zip : $(CMAKE_BIN) $(ZLIB)
 	make cleanopencv
-	curl -L http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/${OPENCV_VER}/opencv-${OPENCV_VER}.tar.gz > ${MB_DIR}/deps/opencv-${OPENCV_VER}.tar.gz
-	cd ${MB_DIR}/deps && tar xvzf opencv-${OPENCV_VER}.tar.gz
+	curl -L https://github.com/Itseez/opencv/archive/${OPENCV_VER}.zip > ${MB_DIR}/deps/opencv-${OPENCV_VER}.zip
+	cd ${MB_DIR}/deps && unzip opencv-${OPENCV_VER}.zip
 	# edit release/CMakeCache.txt, set VERBOSE=ON/TRUE
 	sed s+\$${MB_DIR}+${MB_DIR}+ < patch_opencv.diff | patch ${MB_DIR}/deps/opencv-${OPENCV_VER}/modules/highgui/CMakeLists.txt
 	mkdir ${MB_DIR}/deps/opencv-${OPENCV_VER}/release
@@ -193,7 +193,7 @@ endif
 
 ifeq ($(OS), Darwin)
 $(GUI) : $(DEPS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
-	cd gui && MB_DIR=${MB_DIR} QT_VER=${QT_VER} ./update.sh $(OS) && make -j ${NJOBS}
+	cd gui && MB_DIR=${MB_DIR} QT_VER=${QT_VER} BIN_DIR=${BIN_DIR} ./update.sh $(OS) && make -j ${NJOBS}
 	
 installgui :
 	rsync -r ${MB_DIR}/gui/MateBook.app ${BIN_DIR}
@@ -201,11 +201,12 @@ installgui :
 
 else
 $(GUI) : $(DEPS) $(QT_LIBS) $(PHONON_LIBS) $(MB_DIR)/gui/source/*.cpp $(MB_DIR)/gui/source/*.hpp
-	cd gui && MB_DIR=${MB_DIR} QT_VER=${QT_VER} ./update.sh $(OS) && make -j ${NJOBS}
+	cd gui && MB_DIR=${MB_DIR} QT_VER=${QT_VER} BIN_DIR=${BIN_DIR} ./update.sh $(OS) && make -j ${NJOBS}
 	
 installgui :
 	cp $(MB_DIR)/gui/MateBook $(BIN_DIR)
-	printf [Paths]\\nPlugins='.' > $(BIN_DIR)/qt.conf
+	#printf [Paths]\\nPlugins='.' >> $(BIN_DIR)/qt.conf
+  #${BIN_DIR}/qmake -set QT_INSTALL_PLUGINS ${MB_DIR}/usr
 endif
 .PHONY : installgui
 

@@ -11,16 +11,16 @@ else
   QMAKE=${MB_DIR}/usr/bin/qmake
   QTDIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER}
 fi
-
 cat<<END_OF_HEAD>MateBook.pro
 QT += core gui network xml opengl phonon
 TEMPLATE = app
 TARGET = MateBook
-DEFINES += ${OS} GL_GLEXT_PROTOTYPES
+BIN_DIR = \"${BIN_DIR}\"
+DEFINES += ${OS} GL_GLEXT_PROTOTYPES "'BIN_DIR=\$\${BIN_DIR}'"
 CONFIG += debug console
 LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lboost_system -lboost_filesystem -lavdevice -lavfilter -lavformat -lavutil -lavcodec -lswresample -lswscale
 INCLUDEPATH += ${MB_DIR}/usr/include
-LIBPATH += ${MB_DIR}/usr/lib
+QMAKE_LIBDIR += ${MB_DIR}/usr/lib
 END_OF_HEAD
 
 if [ "$1" == "Linux" ] ; then

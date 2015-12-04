@@ -100,7 +100,6 @@ void ClusterJob::start()
 
     QStringList strlist;
     strlist << sshParameters << executable << arguments;
-    QString str = strlist.join(" ");
     process->start(sshClient, strlist);
 }
 
