@@ -2306,6 +2306,7 @@ void Arena::deriveHeadingDependentAttributes()
 			const Attribute<float>& passive_bodyOrientation = flyAttributes[passiveFly].getFilled<float>("bodyOrientation");
 			const Attribute<float>& passive_bodyMajorAxisLength = flyAttributes[passiveFly].getFilled<float>("bodyMajorAxisLength");
 			Attribute<float>& angleToOther = pairAttributes[activeFly][passiveFly].getEmpty<float>("angleToOther");
+			Attribute<float>& angleSubtended = pairAttributes[activeFly][passiveFly].getEmpty<float>("angleSubtended");
 			Attribute<float>& distanceHeadBody = pairAttributes[activeFly][passiveFly].getEmpty<float>("distanceHeadBody");
 			Attribute<float>& distanceHeadTail = pairAttributes[activeFly][passiveFly].getEmpty<float>("distanceHeadTail");
 			for (size_t frameNumber = 0; frameNumber != getFrameCount(); ++frameNumber) {
@@ -2339,6 +2340,29 @@ void Arena::deriveHeadingDependentAttributes()
 					float dY = tailY - headY;
 					distanceHeadTail.push_back(std::sqrt(dX * dX + dY * dY));
 				}
+
+        { // calculate the angle subtended between the head and the other fly's head and tail
+          float dX, dY;
+					double radAngleSelf = active_bodyOrientation[frameNumber] * CV_PI / 180.;
+					double radAngleOther = passive_bodyOrientation[frameNumber] * CV_PI / 180.;
+					float refX = active_bodyCentroid[frameNumber].x() + (float)cos(radAngleSelf) * 0.5f * active_bodyMajorAxisLength[frameNumber];
+					float refY = active_bodyCentroid[frameNumber].y() + (float)sin(radAngleSelf) * 0.5f * active_bodyMajorAxisLength[frameNumber];
+					float headX = passive_bodyCentroid[frameNumber].x() + (float)cos(radAngleOther) * 0.5f * passive_bodyMajorAxisLength[frameNumber];
+					float headY = passive_bodyCentroid[frameNumber].y() + (float)sin(radAngleOther) * 0.5f * passive_bodyMajorAxisLength[frameNumber];
+					dX = headX - refX;
+					dY = headY - refY;
+					float headAngle = std::atan2(dY, dX) * 180.0 / CV_PI;
+					float tailX = passive_bodyCentroid[frameNumber].x() - (float)cos(radAngleOther) * 0.5f * passive_bodyMajorAxisLength[frameNumber];
+					float tailY = passive_bodyCentroid[frameNumber].y() - (float)sin(radAngleOther) * 0.5f * passive_bodyMajorAxisLength[frameNumber];
+					dX = tailX - refX;
+					dY = tailY - refY;
+					float tailAngle = std::atan2(dY, dX) * 180.0 / CV_PI;
+          float angle = fabs(headAngle-tailAngle);
+					if (angle > 180) {
+						angle = 360-angle;
+					}
+					angleSubtended.push_back(angle);
+        }
 			}
 		}
 	}
@@ -2368,9 +2392,17 @@ void Arena::deriveHeadingDependentAttributes()
 			if (activeFly == passiveFly) {
 				continue;
 			}
+			const Attribute<float>& distanceBodyBody = pairAttributes[activeFly][passiveFly].getFilled<float>("distanceBodyBody");
+			const Attribute<float>& distanceHeadTail = pairAttributes[activeFly][passiveFly].getFilled<float>("distanceHeadTail");
 			const Attribute<float>& distanceHeadBody = pairAttributes[activeFly][passiveFly].getFilled<float>("distanceHeadBody");
+			Attribute<float>& changeInDistanceBodyBody = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInDistanceBodyBody");
+			Attribute<float>& changeInDistanceHeadTail = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInDistanceHeadTail");
 			Attribute<float>& changeInDistanceHeadBody = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInDistanceHeadBody");
+			changeInDistanceBodyBody.getData() = convolve_clamp(distanceBodyBody.getData(), deriveKernel);
+			changeInDistanceHeadTail.getData() = convolve_clamp(distanceHeadTail.getData(), deriveKernel);
 			changeInDistanceHeadBody.getData() = convolve_clamp(distanceHeadBody.getData(), deriveKernel);
+			changeInDistanceBodyBody.getData() = convolve_clamp(changeInDistanceBodyBody.getData(), gaussKernel);	// make it smooth
+			changeInDistanceHeadTail.getData() = convolve_clamp(changeInDistanceHeadTail.getData(), gaussKernel);	// make it smooth
 			changeInDistanceHeadBody.getData() = convolve_clamp(changeInDistanceHeadBody.getData(), gaussKernel);	// make it smooth
 		}
 	}
@@ -2458,17 +2490,23 @@ void Arena::convertUnits()
 			const Attribute<float>& distanceBodyBody = pairAttributes[activeFly][passiveFly].getFilled<float>("distanceBodyBody");
 			const Attribute<float>& distanceHeadBody = pairAttributes[activeFly][passiveFly].getFilled<float>("distanceHeadBody");
 			const Attribute<float>& distanceHeadTail = pairAttributes[activeFly][passiveFly].getFilled<float>("distanceHeadTail");
+			const Attribute<float>& changeInDistanceBodyBody = pairAttributes[activeFly][passiveFly].getFilled<float>("changeInDistanceBodyBody");
+			const Attribute<float>& changeInDistanceHeadTail = pairAttributes[activeFly][passiveFly].getFilled<float>("changeInDistanceHeadTail");
 			const Attribute<float>& changeInDistanceHeadBody = pairAttributes[activeFly][passiveFly].getFilled<float>("changeInDistanceHeadBody");
 			const Attribute<Vf2>& vectorToOtherLocal = pairAttributes[activeFly][passiveFly].getFilled<Vf2>("vectorToOtherLocal");
 			Attribute<float>& distanceBodyBody_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("distanceBodyBody_u");
 			Attribute<float>& distanceHeadBody_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("distanceHeadBody_u");
 			Attribute<float>& distanceHeadTail_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("distanceHeadTail_u");
+			Attribute<float>& changeInDistanceBodyBody_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInDistanceBodyBody_u");
+			Attribute<float>& changeInDistanceHeadTail_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInDistanceHeadTail_u");
 			Attribute<float>& changeInDistanceHeadBody_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInDistanceHeadBody_u");
 			Attribute<Vf2>& vectorToOtherLocal_u = pairAttributes[activeFly][passiveFly].getEmpty<Vf2>("vectorToOtherLocal_u");
 			for (size_t frameNumber = 0; frameNumber != getFrameCount(); ++frameNumber) {
 				distanceBodyBody_u.push_back(distanceBodyBody[frameNumber] / pixelPerMillimeter);
 				distanceHeadBody_u.push_back(distanceHeadBody[frameNumber] / pixelPerMillimeter);
 				distanceHeadTail_u.push_back(distanceHeadTail[frameNumber] / pixelPerMillimeter);
+				changeInDistanceBodyBody_u.push_back(changeInDistanceBodyBody[frameNumber] * sourceFrameRate / pixelPerMillimeter);
+				changeInDistanceHeadTail_u.push_back(changeInDistanceHeadTail[frameNumber] * sourceFrameRate / pixelPerMillimeter);
 				changeInDistanceHeadBody_u.push_back(changeInDistanceHeadBody[frameNumber] * sourceFrameRate / pixelPerMillimeter);
 				vectorToOtherLocal_u.push_back(vectorToOtherLocal[frameNumber] / pixelPerMillimeter);
 			}
@@ -2991,6 +3029,48 @@ void Arena::deriveCourtship(float circlingWeight, float copulatingWeight, float 
 	}
 }
 
+void Arena::deriveNew()
+{
+  {
+    std::vector<float> deriveKernel;
+    deriveKernel.push_back(-1);
+    deriveKernel.push_back(1);
+    std::vector<float> gaussKernel = discreteGaussian<float>(25);
+		for (size_t activeFly = 0; activeFly != getFlyCount(); ++activeFly) {
+			const Attribute<MyBool>& wingExt = flyAttributes[activeFly].getFilled<MyBool>("wingExt");
+			const Attribute<MyBool>& wingExtLeft = flyAttributes[activeFly].getFilled<MyBool>("wingExtLeft");
+			const Attribute<MyBool>& wingExtRight = flyAttributes[activeFly].getFilled<MyBool>("wingExtRight");
+      for (size_t passiveFly = 0; passiveFly != getFlyCount(); ++passiveFly) {
+        if (activeFly == passiveFly) {
+          continue;
+        }
+        const Attribute<float>& angleToOther = pairAttributes[activeFly][passiveFly].getFilled<float>("angleToOther");
+        const Attribute<float>& angleSubtended = pairAttributes[activeFly][passiveFly].getFilled<float>("angleSubtended");
+        Attribute<MyBool>& wingExtFront = pairAttributes[activeFly][passiveFly].getEmpty<MyBool>("wingExtFront");
+        Attribute<MyBool>& wingExtIpsi = pairAttributes[activeFly][passiveFly].getEmpty<MyBool>("wingExtIpsi");
+        Attribute<MyBool>& wingExtContra = pairAttributes[activeFly][passiveFly].getEmpty<MyBool>("wingExtContra");
+        Attribute<MyBool>& wingExtBehind = pairAttributes[activeFly][passiveFly].getEmpty<MyBool>("wingExtBehind");
+        Attribute<float>& changeInAngleToOther = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInAngleToOther");
+        Attribute<float>& changeInAngleToOther_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInAngleToOther_u");
+        Attribute<float>& changeInAngleSubtended = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInAngleSubtended");
+        Attribute<float>& changeInAngleSubtended_u = pairAttributes[activeFly][passiveFly].getEmpty<float>("changeInAngleSubtended_u");
+        changeInAngleToOther.getData()   = convolve_clamp(angleToOther.getData(), deriveKernel);
+        changeInAngleSubtended.getData() = convolve_clamp(angleSubtended.getData(), deriveKernel);
+        changeInAngleToOther.getData()   = convolve_clamp(changeInAngleToOther.getData(), gaussKernel);	// make it smooth
+        changeInAngleSubtended.getData() = convolve_clamp(changeInAngleSubtended.getData(), gaussKernel);	// make it smooth
+        for (size_t frameNumber = 0; frameNumber != getFrameCount(); ++frameNumber) {
+          wingExtFront.push_back(wingExt[frameNumber] && fabs(angleToOther[frameNumber])<15);
+          wingExtIpsi.push_back(wingExtLeft[frameNumber] && angleToOther[frameNumber]<-15 && angleToOther[frameNumber]>-105);
+          wingExtContra.push_back(wingExtRight[frameNumber] && angleToOther[frameNumber]>15 && angleToOther[frameNumber]<105);
+          wingExtBehind.push_back(wingExt[frameNumber] && fabs(angleToOther[frameNumber])>105);
+          changeInAngleToOther_u.push_back(changeInAngleToOther[frameNumber] * sourceFrameRate);
+          changeInAngleSubtended_u.push_back(changeInAngleSubtended[frameNumber] * sourceFrameRate);
+        }
+		  }
+		}
+	}
+}
+
 void Arena::importTrackingData(std::istream& in)
 {
 	flyAttributes.resize(getFlyCount());
@@ -3346,6 +3426,10 @@ void Arena::writeBehavior(std::ostream& out, float binSize, size_t binCount) con
 	writeFlyBehavior(trans, "wingExtRight", firstFrameCopulating, framesPerBin, binCount);
 	writePairBehavior(trans, "wingExtTowards", firstFrameCopulating, framesPerBin, binCount);
 	writePairBehavior(trans, "wingExtAway", firstFrameCopulating, framesPerBin, binCount);
+	writePairBehavior(trans, "wingExtFront", firstFrameCopulating, framesPerBin, binCount);
+	writePairBehavior(trans, "wingExtIpsi", firstFrameCopulating, framesPerBin, binCount);
+	writePairBehavior(trans, "wingExtContra", firstFrameCopulating, framesPerBin, binCount);
+	writePairBehavior(trans, "wingExtBehind", firstFrameCopulating, framesPerBin, binCount);
 	writePairBehavior(trans, "orienting", firstFrameCopulating, framesPerBin, binCount);
 	writePairBehavior(trans, "rayEllipseOrienting", firstFrameCopulating, framesPerBin, binCount);
 	writePairBehavior(trans, "circling", firstFrameCopulating, framesPerBin, binCount);

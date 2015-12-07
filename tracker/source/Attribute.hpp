@@ -207,6 +207,7 @@ public:
 
 	void write(std::ostream& out, const char delimiter = '\t') const
 	{
+    out << getShortName() << delimiter << getType() << delimiter << data.size();
 		for (typename std::vector<T>::const_iterator iter = data.begin(); iter != data.end(); ++iter) {
 			out << delimiter << *iter;
 		}

@@ -394,6 +394,7 @@ int main(int argc, char* const argv[])
 			arenas[arenaNumber].deriveCircling(circling_minDistance, circling_maxDistance, circling_maxAngle, circling_minSpeedSelf, circling_maxSpeedOther, circling_minAngleDifference, circling_minSidewaysSpeed, circling_medianFilterWidth, circling_persistence);
 			arenas[arenaNumber].deriveWingExt(wingExtension_minAngle, wingExtension_tailQuadrantAreaRatio, wingExtension_directionTolerance, wingExtension_minBoc, wingExtension_angleMedianFilterWidth, wingExtension_areaMedianFilterWidth, wingExtension_persistence);
 			arenas[arenaNumber].deriveCourtship(circlingWeight, copulatingWeight, followingWeight, orientingWeight, rayEllipseOrientingWeight, wingExtWeight);
+			arenas[arenaNumber].deriveNew();
 		}
 
 		// export the data

@@ -54,6 +54,7 @@ public:
 	void deriveCircling(float minDistance, float maxDistance, float maxAngle, float minSpeedSelf, float maxSpeedOther, float minAngleDifference, float minSidewaysSpeed, float medianFilterWidth, float persistence);
 	void deriveWingExt(float minAngle, float tailQuadrantAreaRatio, float directionTolerance, float minBoc, float angleMedianFilterWidth, float areaMedianFilterWidth, float persistence);
 	void deriveCourtship(float circlingWeight, float copulatingWeight, float followingWeight, float orientingWeight, float rayEllipseOrientingWeight, float wingExtWeight);
+	void deriveNew();
 
 	void importTrackingData(std::istream& in);
 	void exportTrackingData(std::ostream& out) const;
