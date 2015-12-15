@@ -26,7 +26,7 @@ PairAttributes::PairAttributes() : AttributeCollection()
 	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "", rayEllipseOriHit, "This fly's viewing ray hits the other fly's body.", "");
 	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "", rayEllipseOriAngle, "Orientation angle criterion fulfilled.", "");
 	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "", rayEllipseOriDistance, "Orientation distance criterion fulfilled.", "");
-	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "", rayEllipseOrienting, "This fly is orienting itself towards the other fly.", "");
+	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "rori", rayEllipseOrienting, "This fly is orienting itself towards the other fly.", "");
 	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "", follSmallChangeInDistance, "The changeInDistanceHeadBody attribute is below the threshold for following.", "");
 	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "", follAngle, "Following angle criterion fulfilled.", "");
 	NEW_PAIR_ATTRIBUTE(derivedAttributes, MyBool, "", follDistance, "Following distance criterion fulfilled.", "");
