@@ -14,7 +14,8 @@ class MyBool {
 
 public:
 	inline
-	MyBool()
+	MyBool() :
+    value(false)
 	{
 	}
 
