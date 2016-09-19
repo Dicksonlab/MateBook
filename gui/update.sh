@@ -4,12 +4,12 @@ if [ "$1" == "Darwin" ] ; then
   OS=MACOS
   MKSPEC=macx-g++
   QMAKE=/usr/local/bin/qmake
-  QTDIR=/usr/local/Cellar/qt/${QT_VER}
+  QTDIR=/usr/local/Cellar/qt/4.8.6
 else
   OS=LINUX 
   MKSPEC=linux-g++
-  QMAKE=${MB_DIR}/usr/bin/qmake
-  QTDIR=${MB_DIR}/deps/qt-everywhere-opensource-src-${QT_VER}
+  QMAKE=/usr/lib64/qt4/bin/qmake
+  QTDIR=/usr/lib64/qt4
 fi
 cat<<END_OF_HEAD>MateBook.pro
 QT += core gui network xml opengl phonon
