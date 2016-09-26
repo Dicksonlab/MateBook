@@ -987,7 +987,7 @@ bool FileItem::canUseCluster() const
 			(absoluteDataDirectory().absolutePath().startsWith("\\\\") || absoluteDataDirectory().absolutePath().startsWith("//"));
 	#elif defined(LINUX)
         // return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
-        return getFileName().startsWith("/tier2/");
+        return (getFileName().startsWith("/tier2") || getFileName().startsWith("/groups") || getFileName().startsWith("/nobackup"));
 	#else
         // return getFileName().startsWith("/Volumes/") && absoluteDataDirectory().absolutePath().startsWith("/Volumes/");
         return getFileName().startsWith("/Volumes/");

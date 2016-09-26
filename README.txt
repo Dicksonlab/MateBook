@@ -60,7 +60,7 @@ executable is on the labshare at dicksonlab/MateBook/MateBook_mac.
 to batch jobs to cluster:
 
   1. the files must be stored on the labshare
-    (i.e. start with /Volumes on a mac, and /tier2 on linux)
+    (i.e. start with /Volumes on a mac, and /tier2 or /groups or /nobackup on linux)
 
   2. the project must be saved to the labshare
 
