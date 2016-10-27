@@ -94,7 +94,7 @@ void AttributeGrapher::setCurrentResults(boost::shared_ptr<TrackingResults> trac
     std::string shortname = frameAttributes.get(*iter).getShortName();
     if(shortname.empty())  continue;
     attributeComboBox->addItem(QString::fromStdString(shortname),
-          QString::fromStdString("frame,"+*iter));
+          QString::fromStdString(*iter+delimiter+"frame"));
 		if (QString::fromStdString(*iter) == previouslySelected) {
 			attributeComboBox->setCurrentIndex(attributeComboBox->count() - 1);
 		}
@@ -108,7 +108,7 @@ void AttributeGrapher::setCurrentResults(boost::shared_ptr<TrackingResults> trac
     std::string shortname = flyAttributes.get(*iter).getShortName();
     if(shortname.empty())  continue;
     attributeComboBox->addItem(QString::fromStdString(shortname),
-          QString::fromStdString("fly,"+*iter));
+          QString::fromStdString(*iter+delimiter+"fly"));
 		if (QString::fromStdString(*iter) == previouslySelected) {
 			attributeComboBox->setCurrentIndex(attributeComboBox->count() - 1);
 		}
@@ -122,7 +122,7 @@ void AttributeGrapher::setCurrentResults(boost::shared_ptr<TrackingResults> trac
     std::string shortname = pairAttributes.get(*iter).getShortName();
     if(shortname.empty())  continue;
     attributeComboBox->addItem(QString::fromStdString(shortname),
-          QString::fromStdString("pair,"+*iter));
+          QString::fromStdString(*iter+delimiter+"pair"));
 		if (QString::fromStdString(*iter) == previouslySelected) {
 			attributeComboBox->setCurrentIndex(attributeComboBox->count() - 1);
 		}
@@ -168,9 +168,9 @@ void AttributeGrapher::attributeChanged()
 
 	if (itemData.canConvert<QString>()) {
 		dimensionComboBox->clear();
-		QStringList foo = itemData.toString().split(",");
-		std::string kindOfAttribute = foo.at(0).toStdString();
-		std::string attributeName = foo.at(1).toStdString();
+		QStringList foo = itemData.toString().split(delimiter);
+		std::string attributeName = foo.at(0).toStdString();
+		std::string kindOfAttribute = foo.at(1).toStdString();
 		if (kindOfAttribute == "frame") {
 			plot->clear();
 			plot->addUnitGraph(1000, 1.0f, true, QVector4D(0.0, 0.0, 0.0, 1.0));
@@ -334,9 +334,9 @@ void AttributeGrapher::dimensionChanged(int index)
 	}
 
 	if (itemData.canConvert<QString>()) {
-		QStringList foo = itemData.toString().split(",");
-		std::string kindOfAttribute = foo.at(0).toStdString();
-		std::string attributeName = foo.at(1).toStdString();
+		QStringList foo = itemData.toString().split(delimiter);
+		std::string attributeName = foo.at(0).toStdString();
+		std::string kindOfAttribute = foo.at(1).toStdString();
 		if (kindOfAttribute == "frame") {
 			plot->clear();
 			plot->addUnitGraph(1000, 1.0f, true, QVector4D(0.0, 0.0, 0.0, 1.0));

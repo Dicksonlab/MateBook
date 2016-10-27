@@ -40,6 +40,7 @@ private slots:
 private:
 	QComboBox* attributeComboBox;
 	ColorButton* colorButton;
+	const char delimiter = ':';
 };
 
 #endif

@@ -42,8 +42,6 @@ QSize AttributeSelector::sizeHint() const
 
 std::string AttributeSelector::getString() const
 {
-	const char delimiter = ':';
-
 	QVariant itemData = attributeComboBox->itemData(attributeComboBox->currentIndex());
 	if (!itemData.isValid() || !itemData.canConvert<QString>()) {
 		std::cerr << "cannot create attribute string in AttributeSelector::getString(): no attribute selected" << std::endl;
@@ -53,7 +51,7 @@ std::string AttributeSelector::getString() const
 	QColor color = colorButton->getColor();
 
 	std::string description =
-		attributeComboBox->currentText().toStdString() + delimiter +
+		//attributeComboBox->currentText().toStdString() + delimiter +
 		itemData.toString().toStdString() + delimiter +
 		stringify(color.red()) + delimiter +
 		stringify(color.green()) + delimiter +
@@ -65,7 +63,6 @@ std::string AttributeSelector::getString() const
 
 void AttributeSelector::fromString(const std::string& description)
 {
-	const char delimiter = ':';
 	const int numberOfTokens = 5;	// the number of tokens that have been serialized
 
 	if (description == "") {	// deselect attribute
@@ -96,9 +93,9 @@ void AttributeSelector::fromString(const std::string& description)
 	}
 
 	for (int attributeNumber = 0; attributeNumber != attributeComboBox->count(); ++attributeNumber) {
-		if (attributeComboBox->itemText(attributeNumber) == attributeName &&
+		if (//attributeComboBox->itemText(attributeNumber) == attributeName &&
 			attributeComboBox->itemData(attributeNumber).canConvert<QString>() &&
-			attributeComboBox->itemData(attributeNumber).toString() == attributeKind
+			attributeComboBox->itemData(attributeNumber).toString() == attributeName+delimiter+attributeKind
 		) {
 			attributeComboBox->setCurrentIndex(attributeNumber);
 			break;
@@ -111,9 +108,9 @@ void AttributeSelector::fromString(const std::string& description)
 void AttributeSelector::selectAttribute(const QString& name, const QString& kind)
 {
 	for (int attributeNumber = 0; attributeNumber != attributeComboBox->count(); ++attributeNumber) {
-		if (attributeComboBox->itemText(attributeNumber) == name &&
+		if (//attributeComboBox->itemText(attributeNumber) == name &&
 			attributeComboBox->itemData(attributeNumber).canConvert<QString>() &&
-			attributeComboBox->itemData(attributeNumber).toString() == kind
+			attributeComboBox->itemData(attributeNumber).toString() == name+delimiter+kind
 		) {
 			attributeComboBox->setCurrentIndex(attributeNumber);
 			return;
@@ -140,7 +137,7 @@ void AttributeSelector::reset()	//TODO: add only MyBool attributes to the combo 
       std::string shortname = frameAttributes.get(*iter).getShortName();
       if(shortname.empty())  continue;
 			attributeComboBox->addItem(QString::fromStdString(shortname),
-            QString::fromStdString("frame,"+*iter));
+            QString::fromStdString(*iter+delimiter+"frame"));
 		}
 	}
 	attributeComboBox->insertSeparator(attributeComboBox->count());
@@ -151,7 +148,7 @@ void AttributeSelector::reset()	//TODO: add only MyBool attributes to the combo 
       std::string shortname = flyAttributes.get(*iter).getShortName();
       if(shortname.empty())  continue;
 			attributeComboBox->addItem(QString::fromStdString(shortname),
-            QString::fromStdString("fly,"+*iter));
+            QString::fromStdString(*iter+delimiter+"fly"));
 		}
 	}
 	attributeComboBox->insertSeparator(attributeComboBox->count());
@@ -162,7 +159,7 @@ void AttributeSelector::reset()	//TODO: add only MyBool attributes to the combo 
       std::string shortname = pairAttributes.get(*iter).getShortName();
       if(shortname.empty())  continue;
 			attributeComboBox->addItem(QString::fromStdString(shortname),
-            QString::fromStdString("pair,"+*iter));
+            QString::fromStdString(*iter+delimiter+"pair"));
 		}
 	}
 }

@@ -58,6 +58,7 @@ private:
 //	QComboBox* flyComboBox;
 	QComboBox* attributeComboBox;
 	QComboBox* dimensionComboBox;
+	const char delimiter = ':';
 };
 
 #endif

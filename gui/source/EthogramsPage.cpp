@@ -25,9 +25,9 @@ EthogramsPage::EthogramsPage(Settings& trackerSettings, QWidget* parent) : Confi
 	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(0))->setColor(QColor(255, 255, 0));
 	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(1))->selectAttribute("circling", "pair");
 	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(1))->setColor(QColor(200, 81, 255));
-	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(2))->selectAttribute("wingExt", "fly");
+	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(2))->selectAttribute("wingExtTowards", "pair");
 	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(2))->setColor(QColor(255, 0, 0));
-	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(3))->selectAttribute("following", "pair");
+	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(3))->selectAttribute("courting", "fly");
 	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(3))->setColor(QColor(0, 255, 0));
 	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(4))->selectAttribute("orienting", "pair");
 	assert_cast<AttributeSelector*>(ethogramAttributes->getWidget(4))->setColor(QColor(81, 124, 255));
