@@ -57,7 +57,7 @@ void ClusterJob::processStarted()
 void ClusterJob::processFinished()
 {
 	QString standardOutput(assert_cast<QProcess*>(sender())->readAllStandardOutput());
-	QRegExp regExp("Your job (\\d+) \\(\".*\"\\) has been submitted");
+	QRegExp regExp("Job <(\\d+)> is submitted to default queue <normal>.");
 	if (regExp.indexIn(standardOutput) > -1) {
 		id = regExp.cap(1).toUInt();
 	}
@@ -107,7 +107,7 @@ void ClusterJob::stop()
 {
 	QProcess* process = new QProcess;
 	process->setWorkingDirectory(workingDirectory.path());
-	process->start(sshClient, QStringList() << sshParameters << "qdel " + QString::number(id));
+	process->start(sshClient, QStringList() << sshParameters << "bkill " + QString::number(id));
 }
 
 QString ClusterJob::getDescription() const
@@ -133,7 +133,7 @@ void ClusterJob::checkJobStatus()
 	connect(process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(checkJobStatusFinished()));
 	connect(process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(checkJobStatusError(QProcess::ProcessError)));
 
-	process->start(sshClient, QStringList() << sshParameters << "qalter -w v " + QString::number(id));
+	process->start(sshClient, QStringList() << sshParameters << "bjobs " + QString::number(id));
 }
 
 void ClusterJob::checkJobStatusStarted()
@@ -146,13 +146,13 @@ void ClusterJob::checkJobStatusFinished()
 	//TODO: parse its stdout and emit jobStarted(this), jobFinished(this) or jobError(this) if the status changed
 	//TODO: stop the timer if it's no longer running
 	QString standardOutput(assert_cast<QProcess*>(sender())->readAllStandardOutput());
-	if (standardOutput.contains("job \"" + QString::number(id) + "\" does not exist")) {
+	if (standardOutput.contains(" DONE ")) {
 		timer->stop();
 		emit jobFinished(this);
-	} else if (standardOutput.contains("job is already running")) {
+	} else if (standardOutput.contains(" RUN ")) {
 		//TODO: only emit if it just changed to running, i.e. keep the status as a member variable
 		emit jobStarted(this);
-	} else if (standardOutput.contains("found suitable queue")) {
+	} else if (standardOutput.contains(" PEND ")) {
 		// the job should be showing up as queued anyway
 	} else {
 		std::cerr << "unknown job status reported for job " << id << ": " << standardOutput.toStdString() << std::endl;

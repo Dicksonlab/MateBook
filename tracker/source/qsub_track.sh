@@ -65,5 +65,5 @@ if [ -x ${MB_PATH}/usr/bin/tracker/$MB_VERSION/tracker ]; then
 	MB_BEGIN="$MB_BEGIN" \
 	MB_END="$MB_END" \
 	MB_PATH="$MB_PATH" \
-	qsub -N MateBook -cwd -j y -o output.log -b y -v MB_USER,MB_VERSION,MB_VIDEO,MB_OUTDIR,MB_SETTINGS,MB_PREPROCESS,MB_TRACK,MB_POSTPROCESS,MB_BEGIN,MB_END,MB_PATH ${MB_PATH}/usr/bin/tracker/$MB_VERSION/track.sh
+	bsub -J MateBook -o output.log ${MB_PATH}/usr/bin/tracker/$MB_VERSION/track.sh
 fi

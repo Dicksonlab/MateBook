@@ -76,4 +76,4 @@ to batch jobs to cluster:
       host key to <blank>
       username to your janelia username (e.g. dicksonb)
       private key to <blank>
-      remote environment to "source /sge/current/default/common/settings.sh"
+      remote environment to "source /misc/lsf/conf/profile.lsf"

@@ -149,7 +149,7 @@ SystemPage::SystemPage(Settings& trackerSettings, QWidget* parent) : ConfigPage(
 
 	sshEnvironment = new QLineEdit(this);
 	// sshEnvironment->setText("source /sw/lenny/etc/sge-aragon.bash");
-	sshEnvironment->setText("source /sge/current/default/common/settings.sh");
+	sshEnvironment->setText("source /misc/lsf/conf/profile.lsf");
 	clusterProcessingLayout->addRow(QString("Remote Environment: "), sshEnvironment);
 	clusterProcessingLayout->itemAt(clusterProcessingLayout->count() - 2)->widget()->setToolTip(QString("The environment in which cluster jobs are submitted."));
 	clusterProcessingLayout->itemAt(clusterProcessingLayout->count() - 1)->widget()->setToolTip(QString("Code that will be executed remotely before submitting jobs."));
